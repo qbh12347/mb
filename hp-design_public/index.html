@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap3.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/my-css/base.css" />
+		<link id="ztcss" rel="stylesheet" href="css/my-css/default.css" />
+		<!--<link rel="stylesheet" href="layer/mobile/need/layer.css" />-->
+		<link rel="stylesheet" href="colorpick/css/colpick.css" />
+		<!--<link rel="stylesheet" href="datetimepicker/jquery.datetimepicker.css" />-->
+		<link rel="stylesheet" href="layer/layui/css/layui.css" />
+		<link rel="stylesheet" href="zTree/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="css/my-css/quickQuery.css" />
+		<!--<link rel="stylesheet" href="css/my-css/jquery.json-viewer.css" />-->
+		<link rel="stylesheet" href="css/mobile-date/mobiscroll_date.css" />
+		<!--2018.8.7新增table-tree-view-->
+		<link rel="stylesheet" href="bootstrap-table/css/bootstrap-table.min.css" />
+		<link rel="stylesheet" href="bootstrap3.0/ali-fonts/demo.css" />
+		<link rel="stylesheet" href="bootstrap3.0/ali-fonts/iconfont.css" />
+		<link rel="stylesheet" href="css/my-css/combo.select.css" />
+		<!--2019/1/10代码提示-->
+		<link href="codemirror/lib/codemirror.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/theme/monokai.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/display/fullscreen.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/hint/show-hint.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/dialog/dialog.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js" ></script>		
+	</head>
+	<body>
+		<!--<script>
+			$(function(){
+				$.ajax({
+			      	type:"get",
+			      	url:win.baseUrl+"jscss/root",
+			      	async:false,
+			      	success: result => {
+			      		if(result.code=="0"){
+			      			let cssName = [
+								"bootstrap3.0/css/bootstrap.min.css",
+								"css/my-css/index.css",
+								"layer/mobile/need/layer.css",
+								"colorpick/css/colpick.css",
+								"datetimepicker/jquery.datetimepicker.css",
+								"zTree/zTreeStyle/zTreeStyle.css",
+								"css/my-css/quickQuery.css",
+								"bootstrap-table/css/bootstrap-table.min.css"
+							]
+							cssName.forEach(function(v,k){
+								$("head").append("<link>");
+								let css = $("head").children(":last");
+								css.attr({
+								      rel:  "stylesheet",
+								      type: "text/css",
+								      href: result.data+v
+								});
+							});
+			      		}
+				        
+				     },
+				    error: err => {
+				        reject(err);
+				     }
+			    });
+			});
+		</script>-->
+		<div class="navbar-header h-top">
+			<ul>
+				<li onmouseenter="field.fieldMenu()"><a href="javascript:;"><i class="glyphicon glyphicon-file"></i><em i18n="i18n-file">文件</em></a></li>
+				<li onclick="gol.zaDel()"><a href="javascript:;" title="删除专案"><i class="glyphicon glyphicon-trash"></i><em i18n="i18n-delete">删除</em></a></li>
+				<li onclick="gol.save()"><a href="javascript:;" title="保存"><i class="glyphicon glyphicon-print"></i><em i18n="i18n-save">保存</em></a></li>
+				<li onclick="gol.htmlCode()"><a href="javascript:;" title="源码"><i class="icon iconfont icon-yuanma"></i><em i18n="i18n-sourceCode">源码</em></a></li>
+				<li onclick="jstoxml(true)"><a href="javascript:;" title="执行"><i class="glyphicon glyphicon-play"></i><em i18n="i18n-run">执行</em></a></li>
+				<li>
+					<span>切换主题</span>
+					<select id="cssType" onchange="gol.qhzt()">
+					<option>default.css</option>
+					</select>
+					
+				</li>
+				<li>
+					<span>切换语言</span>
+					<select id="languageType" onchange="i18n()">
+						<option>Chinese</option><option>English</option>
+						
+					</select>
+				</li>
+				
+			</ul>
+			<ul class="toolbar">
+				<li class="icon iconfont icon-weibiaoti--" title="横屏" onclick="gol.crossCreen()"></li>
+				<li class="icon iconfont icon-nengyuanguanliku-huitugongju-xiangtongkuangao" title="同宽" onclick="sameWidth()"></li>
+				<li class="icon iconfont icon-chicungaoduxiangtong" title="同高" onclick="sameHeight()"></li>
+				<li class="icon iconfont icon-dingbuduiqi" title="顶部对齐" onclick="topAlign()"></li>
+				<li class="icon iconfont icon-dibuduiqi" title="底部对齐" onclick="bottomAlign()"></li>
+				<li class="icon iconfont icon-pic-center" title="中间对齐" onclick="cenAlign()"></li>
+				<li class="icon iconfont icon-align-left" title="左对齐" onclick="leftAlign()"></li>
+				<li class="icon iconfont icon-align-right" title="右对齐" onclick="rightAlign()"></li>
+				<li class="icon iconfont icon-align-center" title="居中" onclick="centerAlign()"></li>
+				<li class="icon iconfont icon-fuzhi1" title="复制" onclick="copyComponent()"></li>
+				<li class="icon iconfont icon-iconfontjianqie" title="剪切" onclick="shearComponent()"></li>
+				<li class="icon iconfont icon-niantie" title="粘贴" onclick="pasteComponent()"></li>
+				<li class="icon iconfont icon-shangyibuICON" title="撤销上一步操作" onclick="undoOperation()"></li>
+				<li class="icon iconfont icon-xiayibu2" title="还原上一步操作" onclick="redoOperation()"></li>
+				<li class="icon iconfont icon-huihua" title="绘图板" onclick="window.open('paint/index_files/index.html')"></li>
+				<!--<li class="icon iconfont icon-qiehuanzhutise" title="切换主题"></li>
+				<li class="icon iconfont icon-qiehuanyuyan1" title="切换语言"></li>-->
+			</ul>	
+			<!--<div class="btn-group toolbar">
+			    <button type="button" class="btn btn-default glyphicon glyphicon-asterisk"></button>
+			    <button type="button" class="btn btn-default glyphicon glyphicon-asterisk"></button>
+			    <button type="button" class="btn btn-default glyphicon glyphicon-asterisk"></button>
+			</div>-->
+			<!--<ul>
+				<li onmouseenter="field.fieldMenu()"><a href="javascript:;"><i class="glyphicon glyphicon-file"></i><em i18n="i18n-file">文件</em></a></li>
+				<li onclick="gol.zaDel()"><a href="javascript:;" title="删除专案"><i class="glyphicon glyphicon-trash"></i><em i18n="i18n-delete">删除</em></a></li>
+				<li onclick="gol.save()"><a href="javascript:;" title="保存"><i class="glyphicon glyphicon-print"></i><em i18n="i18n-save">保存</em></a></li>
+				<li onclick="gol.htmlCode()"><a href="javascript:;" title="源码"><i class="glyphicon glyphicon-barcode"></i><em i18n="i18n-sourceCode">源码</em></a></li>
+				<li onclick="jstoxml(true)"><a href="javascript:;" title="执行"><i class="glyphicon glyphicon-play"></i><em i18n="i18n-run">执行</em></a></li>
+				
+				<li onclick="gol.crossCreen()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-landscape">横屏</em></a></li>
+				<li onclick="sameWidth()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-sameWidth">同宽</em></a></li>
+				<li onclick="sameHeight()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-sameHeight">同高</em></a></li>
+				<li onclick="topAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-sameTop">顶部对齐</em></a></li>
+				<li onclick="bottomAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-bottomAlignment">底部对齐</em></a></li>
+				<li onclick="cenAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-middleAlignment">中间对齐</em></a></li>
+				
+				<li onclick="leftAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-leftAlignment">左对齐</em></a></li>
+				<li onclick="rightAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-rightAlignment">右对齐</em></a></li>
+				<li onclick="centerAlign()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-center">居中</em></a></li>
+				<li onclick="copyComponent()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-copy">复制</em></a></li>
+				<li onclick="shearComponent()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-cut">剪切</em></a></li>
+				<li onclick="pasteComponent()"><a href="javascript:;" title=""><i class="glyphicon glyphicon-retweet"></i><em i18n="i18n-paste">粘贴</em></a></li>
+				<li onclick="window.open('paint/index_files/index.html')"><a href="javascript:;" title=""><i class="glyphicon glyphicon-gift"></i><em i18n="i18n-drawingBoard">绘图板</em></a></li>
+			
+			</ul>
+			<div style="position: absolute;top: 20px;right: 10px;height: 30px;"><span style="color: white;" i18n="i18n-changeTheme">切换主题</span><select style="width: 80px;margin-left: 10px;height: 26px;" id="cssType" onchange="gol.qhzt()"><option>default.css</option><option>test1.css</option></select></div>
+			<div style="position: absolute;top: 20px;right: 180px;height: 30px;"><span style="color: white;" i18n="i18n-changeLanguage">切换语言</span><select style="width: 80px;margin-left: 10px;height: 26px;" id="languageType" onchange="i18n()"><option>Chinese</option><option>English</option></select></div>-->
+		</div>
+		<div class="c-cont">
+			<div class="c-left2">
+				<!--<ul id="javaHisTree" class="ztree"></ul>-->
+			</div>
+			<div class="c-left" id="accordion">
+			
+				<ul  class="ul-listone">				
+					<li class="listone">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="glyphicon glyphicon-plus"></i>component<span class="glyphicon glyphicon-chevron-right"></span></a>
+					</li>
+					<li id="collapseTwo" class="collapse l-list">
+						
+						<!--<div class="tb-one"><span class="list-drg gridLayout-drg">TGridLayout</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+						<div class="tb-one"><span class="list-drg flowLayout-drg">TFlowLayout</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+	
+						<div class="tb-one"><span class="list-drg label-drg">TLabel</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg panel-drg">TPanel</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+						<div class="tb-one"><span class="list-drg button-drg">TButton</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg textField-drg">TTextField</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg numberTextField-drg">TNumberTextField</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg dateField-drg">TDateField</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg passWordField-drg">TPassWordField</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg checkBox-drg">TCheckBox</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg radioButton-drg">TRadioButton</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>				    
+					   
+					    <div class="tb-one"><span class="list-drg select-drg">TSelect</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div> 
+					   	<div class="tb-one"><span class="list-drg selectTable-drg">TSelectTable</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div> 
+					   	<div class="tb-one"><span class="list-drg textArea-drg">TTextArea</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg table-drg">TTable</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg tree-drg">TTree</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg tabbedPane-drg">TTabbedPane</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>
+					    <div class="tb-one"><span class="list-drg TCollapse-drg">TCollapse</span><i style="float: right;margin-right: 10px;" class="glyphicon glyphicon-hand-right"></i></div>-->
+					    
+						
+					</li>
+					
+					<li class="listone">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="glyphicon glyphicon-plus"></i>mobile<span class="glyphicon glyphicon-chevron-right"></span></a>
+					</li>
+					<li id="collapseThree" class="collapse l-list">
+					</li>
+					
+					<li class="listone">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="glyphicon glyphicon-plus"></i>Combo<span class="glyphicon glyphicon-chevron-right"></span></a>
+					</li>
+					<li id="collapseOne" class="collapse l-list">
+						
+					</li>
+				</ul>	
+				<div class="baseTree">
+					<ul id="baseTree" class="ztree"></ul>
+				</div>
+		</div>
+		<!-------------------中部拖拽编辑区域start----------------------->
+		<div class=" r-con">
+			<div class=" c-out">
+				<div class="c-drg">
+				<!--<div class="c-le col-lg-1 col-md-2">
+					
+				</div>
+				<div class="c-drg col-lg-11 col-md-10">
+					
+				</div>-->
+				<!--<iframe src="content.html" style="width: 100%;height: 100%;"></iframe>-->
+				<!--<div class="c-drg">	
+					
+				</div>-->
+				</div>
+			</div>
+		</div>
+		<!-------------------中部拖拽编辑区域end----------------------->
+		<div class="c-right">
+			<div class="r-ul">
+				<ul>
+					<li class="actived">parameter</li>
+					<li>event</li>
+				</ul>
+				
+			</div>
+			<div class="r-div">
+				<div class="r-top showdiv">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>name</th>
+								<th>value</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="r-bottom">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>event</th>
+								<th>active</th>								
+							</tr>
+						</thead>
+						<tbody> 
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+
+		</div>
+		</div>
+		<!--<div class="b-bottom">底部信息<button type="button" class="btn btn-danger" onclick="reserve('test2')">页面还原</button></div>-->
+		<!--代码编辑器-->
+		<div class="runtest" style="display: none;height: 100%;">
+	   		<textarea class="teareabtn" id="testmain"></textarea>
+	    <div class="tearea">
+	    	<!--<button onclick="try{new Function(testmain.value)();}catch(e){layer.alert('语句异常：'+e.message)}" type="button" class="btn btn-warning">运行测试</button>-->
+	    	<!--<button onclick="gol.pageJump()" type="button" class="btn btn-warning">jump</button>--> 
+	    	<button onclick="gol.codeMenu()" type="button" class="btn btn-warning">menu</button>
+	    	<button onclick="gol.layerSave()" type="button" class="btn btn-success">确认</button>
+	    	<!--menu-->
+			<div class="codeMenu">
+				<table class="table table-bordered">
+					<thead><tr><th>method</th><th>instructions</th><th>sever</th></tr></thead>
+					<tbody>
+						
+					</tbody>
+					
+				</table>
+			</div>
+	    </div>
+		</div>
+		<!--右侧选项-->
+		<div class="r-sel">
+			<ul>
+				
+			</ul>
+		</div>	
+		<!--左侧点击出现菜单-->
+		<div class="cl-menu">
+			<ul>
+				<li>新建目录</li>
+				<li>新建UI</li>
+			</ul>
+		</div>
+		<!--左侧菜单点击出现弹窗-->
+		<div class="nui">
+			<form class="ml">
+				<div><label>目录名称：</label><input type="text" /></div>
+			</form>
+			<form class="ui">
+				<div><label>文件名称：</label><input type="text" /></div>
+				<div><label>类型：</label><select id="uitype"><option>normal</option><option>Modal</option><option>Mobile</option><option>baseForm</option><option>baseComponent</option><option>mobileComponent</option><option>customCombo</option></select></div>
+				<div><label>UI模板：</label><select id="uiname"><option></option></select></div>
+				<div><label>描述：</label><textarea></textarea></div>
+				<div><label>作者：</label><input type="text" /></div>
+				<div><label>版本：</label><input type="text" /></div>
+				<div><label>时间：</label><input type="text" /></div>
+				<div><label>公司：</label><input type="text" /></div>
+			</form>
+			<div class="btnLayer">
+			<button type="button" id="determine" class="btn btn-success">确定</button>
+			<button type="button" id="cancel" class="btn btn-info">取消</button>
+			</div>
+		</div>
+		<!--field文件菜单-->
+		<div class="field-menu">
+			<ul>
+				<li><a href="javascript:;"><i><em></em></i>新建</a></li>
+				<li><a href="javascript:;"><i><em></em></i>新建js文件</a></li>
+				<li><a href="javascript:;"><i><em></em></i>打开文件</a></li>	
+				<li><a href="javascript:;"><i><em></em></i>新增控件</a></li>
+				<li><a href="javascript:;"><i><em></em></i>编辑控件</a></li>
+				<li><a href="javascript:;"><i><em class="glyphicon glyphicon-log-in"></em></i>导入</a></li>
+				<li><a href="javascript:;"><i><em class="glyphicon glyphicon-log-out"></em></i>导出</a></li>
+				<!--<li><a href="javascript:;"><i><em></em></i>关闭</a></li>-->
+			</ul>
+		</div>
+		<!--文件菜单中，新建-->
+		<div class="addzn">
+			<form class="add-fom">
+				<div><label>名称：</label><input type="text" /></div>
+			</form>
+			<div class="btnLayer">
+				<button type="button" id="zaadd" class="btn btn-success">确定</button>
+				<button type="button" id="zacancel" class="btn btn-info">取消</button>
+			</div>
+		</div>
+		<!--编辑控件-->
+		<div id="editcpt">
+			<form class="form-horizontal" id="">												
+				<div class="">
+					<label for="secondname" class="col-sm-3 control-label">控件名称：</label>
+					<div class="col-sm-9">
+						<select class="form-control">
+							<!--<option>TButton</option>-->
+						</select>
+						
+					</div>
+				</div>				
+			
+			</form>
+			<div class="edbtn"><button type="button" class="btn btn-info" onclick="addComponent('edit')">确定</button></div>
+		</div>
+		<!--新增控件-->
+		<div id="addcpt">
+			<ul id="myTab" class="nav nav-tabs">
+				<li class="active">
+					<a href="#home" data-toggle="tab">基本设置</a>
+				</li>
+				<li>
+					<a href="#view" data-toggle="tab">view设置</a>
+				</li>
+				<li>
+					<a href="#modal" data-toggle="tab">Model设置</a>
+				</li>
+				
+				<li>
+					<a href="#event" data-toggle="tab">event设置</a>
+				</li>
+				<li>
+					<a href="#server" data-toggle="tab">server设置</a>
+				</li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade in active" id="home">
+					<form class="form-horizontal" id="jbform">												
+						<div class="form-group">
+							<label for="secondname" class="col-sm-3 control-label">名称：</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="secondname" placeholder="请输入控件名称">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="firstname" class="col-sm-3 control-label">继承：</label>
+							<div class="col-sm-9">
+								<select><option>publicFn</option></select>
+								<!--<input type="text" class="form-control" id="firstname" placeholder="">-->
+							</div>							
+						</div>
+					
+					</form>
+					
+				</div>
+				<div class="tab-pane fade" id="modal">
+					<!--<textarea></textarea>-->
+					<div class="container-fluid" style="height: 100%;">
+    					<div class="row" style="height: 100%;">
+    						<div class="col-md-3 col-sm-3">
+    							<h4>默认属性</h4>
+								<ul class="list-group">
+									<li><label>width:</label><input type="text" value="" placeholder="auto"/></li>
+									<li><label>height:</label><input type="text" value="" placeholder="auto"/></li>
+									<li><label>pan:</label><input type="text" value=""/></li>
+									<li><label>text:</label><input type="text" value=""/></li>
+									<li><label>posType:</label><input type="text" value="absolute" /></li>
+									<li><label>fontSize:</label><input type="text" value="" placeholder="14px"/></li>
+									<li><label>fontColor:</label><input type="text" value="" placeholder="#000000"/></li>
+									<li><label>bgColor:</label><input type="text" value="" placeholder="#FFFFFF"/></li>
+									<li><label>fontFamily:</label><input type="text" value="" placeholder="Helvetica Neue"/></li>
+									<li><label>fontStyle:</label><input type="text" value="" placeholder="normal"/></li>
+									<li><label>fontWeight:</label><input type="text" value="" placeholder="400"/></li>
+									<li><label>zIndex:</label><input type="text" value="" placeholder="10"/></li>
+									<li><label>border:</label><input type="text" value="" placeholder="none"/></li>									
+									<li><label>margin:</label><input type="text" value="" placeholder="0"/></li>
+									<li><label>padding:</label><input type="text" value="" placeholder="0"/></li>
+									<li><label>cursor:</label><input type="text" value="" placeholder="auto"/></li>
+									<li><label>float:</label><input type="text" value="" placeholder="none"/></li>
+									<li><label>order:</label><input type="text" value="" placeholder="0"/></li>
+									<li><label>flex:</label><input type="text" value="" placeholder="0 1 auto"/></li>
+									<li><label>alignSelf:</label><input type="text" value="" placeholder="auto"/></li>
+								</ul>
+    						</div>
+    						<div class="col-md-4 col-sm-4">
+    							<h4>新增属性</h4>
+    							<button type="button" class="btn btn-default" id="addparam">新增属性</button>
+    							<table class="table">
+    								<thead><tr><th>属性名</th><th>属性值</th></tr></thead>
+    								<tbody></tbody>
+    							</table>
+    						</div>
+    						<div class="col-md-5 col-sm-5" style="height: 100%;">
+    							<textarea placeholder="非css属性请自行定义set/get方法（&;分隔）"></textarea>
+    						</div>
+    					</div>
+    				</div>		
+					
+					
+					<!--<form class="form-horizontal" >
+						<div class="form-group">
+							<label for="sxname" class="col-sm-1 control-label">属性名称：</label>
+							<div class="col-sm-11">
+								<input type="text" class="form-control" id="sxname" placeholder="请输入属性名称“,”分隔">
+							</div>
+						</div>
+					</form>-->
+				</div>
+				<div class="tab-pane fade" id="view">
+					<textarea placeholder="请输入html"></textarea>
+				</div>
+				<div class="tab-pane fade" id="event">
+					<form role="form" style="width: 40%;float: left;">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="click"> click
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="dbclick"> dbclick
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="rightClick"> rightClick
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mousedown"> mousedown
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mouseup"> mouseup
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mouseover"> mouseover
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mouseout"> mouseout
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mouseenter"> mouseenter
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="mouseleave"> mouseleave
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="keydown"> keydown
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="keypress"> keypress
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="keyup"> keyup
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="focus"> focus
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="init"> init
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="change"> change
+							</label>
+						</div>
+					</form>	
+					<div id="customCode"><textarea placeholder="自定义代码&;分隔"></textarea></div>
+				</div>
+				<div class="tab-pane fade" id="server"></div>
+			</div>
+			<button type="button" class="btn btn-primary" onclick="submitComponent()">提交</button>
+		</div>
+		<!--进度条-->
+		<div class="progress" id="progrbar" style="display: none;">
+		    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:0"><span ></span></div>
+		</div>
+		<div id="runTime" style="display: none"></div>
+		<!--新增js文件-->
+		<div id="addjsfield"><textarea id="customjs"></textarea><div class="addjsfieldin form-group"><label class="control-label">文件名:</label><input type="text" class="form-control"/><button onclick="addCustomJsField()" type="button" class="btn btn-warning">保存</button></div></div>
+	</body>
+	<!--<script type="text/javascript" src="http://192.168.123.51:8060/hp/factoryjs/bean.js"></script>-->
+	<!--<script type="text/javascript" src="http://192.168.123.51:8060/hp/factoryjs/service.js"></script>-->
+		<!-- 引入CodeMirror核心文件 -->
+	<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+	<!--<script type="text/javascript" src="codemirror/src/edit/CodeMirror.js"></script>-->
+	
+	<!-- CodeMirror支持不同语言，根据需要引入JS文件 -->
+	<!-- 因为HTML混合语言依赖Javascript、XML、CSS语言支持，所以都要引入 -->
+	<script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>
+	<script type="text/javascript" src="codemirror/mode/xml/xml.js"></script>
+	<script type="text/javascript" src="codemirror/mode/css/css.js"></script>
+	<script type="text/javascript" src="codemirror/mode/sql/sql.js"></script>
+	<!--<script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>-->
+	<!--<script type="text/javascript" src="codemirror/mode/htmlmixed/htmlmixed.js"></script>-->
+	<!-- 下面分别为显示行数、括号匹配和全屏插件 -->
+	<script type="text/javascript" src="codemirror/addon/selection/active-line.js"></script>
+	<script type="text/javascript" src="codemirror/addon/edit/matchbrackets.js"></script>
+	<script type="text/javascript" src="codemirror/addon/display/fullscreen.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/show-hint.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/anyword-hint.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/html-hint.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/javascript-hint.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/sql-hint.js"></script>
+	<script type="text/javascript" src="codemirror/addon/hint/xml-hint.js"></script>
+	<!--<script type="text/javascript" src="codemirror/mode/sql/sql.js"></script>-->
+	
+	<script type="text/javascript" src="codemirror/keymap/vim.js"></script>
+	<script type="text/javascript" src="codemirror/addon/search/searchcursor.js"></script>
+	<script type="text/javascript" src="codemirror/addon/dialog/dialog.js"></script>
+	<script type="text/javascript" src="bootstrap3.0/js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js" ></script>
+	<script type="text/javascript" src="layer/layui/layui.js"></script>
+	<script type="text/javascript" src="js/my-js/index.js" ></script>
+	<script type="text/javascript" src="js/my-js/control.js" ></script>
+	<script type="text/javascript" src="js/my-js/mode.js" ></script>
+	<script type="text/javascript" src="js/my-js/run.js" ></script>
+
+	
+
+	<script type="text/javascript" src="outside/TGridLayout.js" ></script>
+	<script type="text/javascript" src="outside/TCheckBox.js" ></script>
+	<script type="text/javascript" src="outside/TDateField.js" ></script>
+	<script type="text/javascript" src="outside/TMenuTree.js" ></script>
+	<script type="text/javascript" src="outside/TFile.js" ></script>
+	<script type="text/javascript" src="outside/TPassWordField.js" ></script>
+	<script type="text/javascript" src="outside/TRadioButton.js" ></script>
+	<script type="text/javascript" src="outside/TPanel.js" ></script>
+	<script type="text/javascript" src="outside/TTextField.js" ></script>
+	<script type="text/javascript" src="outside/TTextArea.js" ></script>
+	<script type="text/javascript" src="outside/TSelect.js" ></script>
+	<script type="text/javascript" src="outside/TZtree.js" ></script>
+	<script type="text/javascript" src="outside/TFlowLayout.js" ></script>
+	<script type="text/javascript" src="outside/TTable.js" ></script>
+	<script type="text/javascript" src="outside/TButton.js" ></script>
+	<script type="text/javascript" src="outside/TTabbedPane.js" ></script>
+	<script type="text/javascript" src="outside/TTableLayout.js" ></script>
+	<script type="text/javascript" src="outside/TSelectTable.js" ></script>
+	<script type="text/javascript" src="outside/TForm.js" ></script>
+	<script type="text/javascript" src="outside/TPopover.js" ></script>
+	<script type="text/javascript" src="outside/TLabel.js" ></script>
+	<script type="text/javascript" src="outside/TDropdown.js" ></script>
+	<script type="text/javascript" src="js/jq-plugIn/qrcode.lib.min.js" ></script>
+	<!--<script type="text/javascript" src="js/my-js/myQrcode.js" ></script>-->
+	<script type="text/javascript" src="outside/TQrcode.js" ></script>
+	<script type="text/javascript" src="outside/TTimeline.js" ></script>
+	<script type="text/javascript" src="outside/TEchartLine.js" ></script>
+	<script type="text/javascript" src="outside/TMobileDateField.js" ></script>
+	<script type="text/javascript" src="outside/TLocalStorage.js" ></script>
+	
+	
+	<script type="text/javascript" src="js/mobile-date/mobiscroll_date.js" charset="gb2312"></script>
+	<script type="text/javascript" src="js/mobile-date/mobiscroll.js" ></script>
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-treeview.js" ></script>
+	<!--<script type="text/javascript" src="js/jq-plugIn/jquery.json-viewer.js" ></script>-->
+	<script type="text/javascript" src="zTree/js/jquery.ztree.core.min.js" ></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.excheck.min.js"></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.exedit.min.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/page.js" ></script>
+	<!--<script type="text/javascript" src="layer/layer.js" ></script>-->
+	<script type="text/javascript" src="js/jq-plugIn/jquery.htmlClean.js" ></script>
+	<script type="text/javascript" src="colorpick/js/colpick.js" ></script>
+	<!--<script type="text/javascript" src="datetimepicker/jquery.datetimepicker.full.min.js" ></script>-->
+	<!--<script type="text/javascript" src="layer/layui/layui.js"></script>-->
+	<!--<script type="text/javascript" src="js/jq-plugIn/quickQuery-packer.js" ></script>-->
+	<!--2018.8.7新增table-tree-view-->	
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-table.min.js" ></script>
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-table-zh-CN.js" ></script>
+	<script type="text/javascript" src="bootstrap-table/js/table-tree-view.js" ></script>
+	<script type="text/javascript" src="js/jq-plugIn/echarts.common.min.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/pdf.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/jquery.combo.select.js"></script>
+	
+	<script>
+//	win.baseUrl = location.href.substr(0,location.href.indexOf("index"));
+//	win.baseUrl = "http://192.168.123.96:8083/hp/";
+	win.baseUrl = "http://192.168.123.245:8060/sch/hp-design/";
+	//win.baseUrl = "http://192.168.123.52:8060/hp/";
+	//win.baseUrl = "http://192.168.0.77:8084/hp/"
+	//加载js
+	$(function(){
+//		$.ajax({
+//	      	type:"get",
+//	      	url:win.baseUrl+"jscss/get",
+//	      	async:true,
+//	      	success: res => {
+//		       	let fnData = res.data;
+//		        win.jsUrl = fnData;        //导出使用
+//		        
+//		        
+//		       $.when(
+//				    $.getScript( win.baseUrl+"factoryjs/bean.js" ),
+//				    $.getScript( win.baseUrl+"factoryjs/service.js" ),
+//				    $.Deferred(function( deferred ){
+//				        
+//				    })
+//				).done(function(){
+//
+//				});
+//		       		
+//		     },
+//		    error: err => {
+//		        
+//		     }
+//	     });
+	     
+	     formInit(); 
+	  });
+	</script>
+</html>

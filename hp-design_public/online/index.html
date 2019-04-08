@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="layer/layui/css/layui.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<!--<link rel="stylesheet" href="ali-fonts/demo.css" />
+		<link rel="stylesheet" href="ali-fonts/iconfont.css" />-->
+		<link rel="stylesheet" href="css/jquery.json-viewer.css" />
+		<link rel="stylesheet" href="../bootstrap3.0/ali-fonts/demo.css" />
+		<link rel="stylesheet" href="../bootstrap3.0/ali-fonts/iconfont.css" />
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="layer/layui/layui.js"></script>
+		<script type="text/javascript" src="js/jquery.json-viewer.js" ></script>
+		<script type="text/javascript" src="js/FileSaver.js" ></script>
+		<script type="text/javascript" src="js/jquery.wordexport.js" ></script>
+		<!--<script type="text/javascript" src="http://192.168.123.52:8020/sch/hp-design/factoryjs/bean.js"></script>
+		<script type="text/javascript" src="http://192.168.123.52:8020/sch/hp-design/factoryjs/service.js"></script>-->
+		
+		<title>SHOW API LIST</title>
+
+	</head>
+
+	<body>
+		
+		<div class="sw-all">
+			<div class="sw-top" id="sw-top-id">SHOW API LIST</div>
+			<div class="sw-con">
+				<div class="sw-con-left">
+					<ul>
+						<li><a class="wli">文档管理</a><ul class="indom"><li>离线文档</li></ul></li>
+					</ul>
+				</div>
+				<!--<div class="sw-con-right">-->
+					<div class="layui-tab sw-con-right" lay-filter="demo" lay-allowclose="true">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this">首页</li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show">
+					    	<table class="layui-table das-one">
+					    		 <tbody>
+					    		 	  <colgroup>
+									    <col width="200">
+									    <col>
+									  </colgroup>
+					    		 	<tr><td colspan="2" style="text-align: center;"></td></tr>
+					    		 	<tr><td>简介</td><td></td></tr>
+					    		 	<tr><td>作者</td><td></td></tr>
+					    		 	<tr><td>版本</td><td></td></tr>
+					    		 	<tr><td>host</td><td></td></tr>
+					    		 	<tr><td>basePath</td><td></td></tr>
+					    		 </tbody>
+					    	</table>
+					    </div>
+					    
+					  </div>
+					  <!--<pre class="sw-con-bottom"></pre>-->
+					</div>
+				<!--</div>-->
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			let url = location.href.replace("online/index.html","");
+			$.getScript( url+"factoryjs/bean.js" );
+            $.getScript( url+"factoryjs/service.js" );
+			let element;
+			layui.use('element', function(){
+			  element = layui.element;
+			});
+//			$(".sw-con-left ul").html("");
+			let param = {};
+			let definitions = {};
+			let sev;
+			let met;
+			let initLengh = false;
+			$.ajax({ 
+				type: "get",
+				url: url+"api-docs",
+//				url:"mydoc.json",
+				async: true,
+				success: function(data) {
+					if(typeof data == "string") {
+						data = JSON.parse(data)
+					}
+					data = data.data;
+					//首页内容
+                    $(document).attr("title",data.info.title);//修改title值
+					$(".sw-top").text(data.info.title);  //标题
+					$(".das-one").find("tr").eq(0).find("td").eq(0).text(data.info.title);  //标题
+					$(".das-one").find("tr").eq(1).find("td").eq(1).text();                 //简介
+					$(".das-one").find("tr").eq(2).find("td").eq(1).text(data.info.contact.name);//作者
+					$(".das-one").find("tr").eq(3).find("td").eq(1).text(data.info.version);//版本
+					$(".das-one").find("tr").eq(4).find("td").eq(1).text(data.host);        //host
+					$(".das-one").find("tr").eq(5).find("td").eq(1).text(data.basePath);    //basePath
+					
+					let paths = data.paths;					
+					for (let j=0;j<data.definitions.length;j++) {
+						definitions[data.definitions[j].beanClass] = data.definitions[j].properties;
+					}
+	//				let apiParam = searchDef(definitions);
+//					let param = {};
+					for(let i = 0; i < paths.length; i++) {
+						let id = $("#"+paths[i].serviceName);
+						if(id.length==0){
+							$(".sw-con-left>ul").append('<li id='+paths[i].serviceName+'><a href="javascript:;" class="wli">'+paths[i].serviceName+'</a><ul class="indom"></ul></li>');	
+						}
+							id = $("#"+paths[i].serviceName).find("ul");
+						
+						id.append('<li data-sev="'+paths[i].serviceName+'" data-met="'+paths[i].methodName+'">'+paths[i].methodName+'<span>('+paths[i].desc+')</span></li>');
+						param[paths[i].serviceName] = param[paths[i].serviceName] || {};					
+						param[paths[i].serviceName][paths[i].methodName] = paths[i].params;
+					}
+				bingEvent(data);
+				}
+				
+			});
+			//绑定事件
+			function bingEvent(data){
+				$(".sw-con-left .wli").click(function(){
+					$(this).next().toggle();
+				});
+				$(".indom li").click(function(){
+					sev = $(this).attr("data-sev");
+					met = $(this).attr("data-met");
+					if(sev){
+						searchDef(sev,met);
+					}else{
+						wordHtml(data);
+					}
+					
+				});
+				
+				$(".layui-tab-content").on("click",".postParam",function(){
+					postRequest();
+				});
+				$(".layui-tab-content").on("click",".isadd",function(){
+					isadd();
+				});
+				
+				
+			}
+			//查询参数
+			function searchDef(sev,met) {
+				let chtml = '<div class="outtable" data-sev="'+sev+'" data-met="'+met+'"><p>请求参数</p><table class="layui-table"> <thead>'
+				+' <tr><th>参数名称</th><th>参数说明</th><th>参数类型</th><th>必填</th><th>参数值</th></tr></thead>'
+				+' <tbody></tbody></table><button class="layui-btn layui-btn-warm postParam">发送请求</button></div><pre class="sw-con-bottom"></pre>'
+//				let param = {};
+				element.tabAdd('demo', {
+				  title: met,
+				  content: chtml
+				}); 
+				
+				
+				let isadd = false;
+				let mtodParam = param[sev][met]; 
+				mtodParam.forEach(function(v,i){
+					let tabhtml = "";
+					let requiredColor;
+					v.required?requiredColor="red":requiredColor="black";
+					let nttxt = beanClass(v.beanClass);
+					if(v.beanClass.indexOf("com.das")==-1){						
+						tabhtml = tabhtml + '<tr data-type="'+v.beanClass+'"><td>'+v.beanName+'</td><td>'+v.description+'</td><td>'+v.beanType+'</td><td style="color:'+requiredColor+'">'+v.required+'</td><td><input type="text" value='+nttxt+'></td></tr>'
+					}else{
+						let childrenClass = "ch_" + Math.random().toString(36).substr(2);
+						tabhtml = tabhtml + '<tr data-cu = "'+v.beanClass+'" data-ch="'+childrenClass+'"><td onclick=detailParam($(this),"'+childrenClass+'")><span class="icon iconfont icon-right"></span>'+v.beanName+'</td><td>'+v.description+'</td><td>'+v.beanType+'</td><td style="color:'+requiredColor+'">'+v.required+'</td><td></td></tr>'
+						if(v.beanClass.indexOf("[L")!=-1){
+							v.beanClass = v.beanClass.substr(2);
+							v.beanClass = v.beanClass.substr(0,v.beanClass.length-1);
+							isadd = true;
+							initLengh = false;
+						}
+						definitions[v.beanClass].forEach(function(m,j){
+							nttxt = beanClass(m.beanClass);
+							tabhtml = tabhtml + '<tr class="'+childrenClass+' chplay"><td>'+m.beanName+'</td><td>'+m.description+'</td><td>'+m.beanType+'</td><td style="color:'+requiredColor+'">'+m.required+'</td><td><input type="text" value='+nttxt+'></td></tr>'
+						});
+						
+					}
+				$(".sw-con-right").children().eq(1).find("div:last").find("tbody").append(tabhtml);	
+				if(isadd){
+					$(".sw-con-right").children().eq(1).find("div:last").append('<button class="layui-btn layui-btn-sm isadd">+</button>');
+				}
+				});
+			}
+			
+			//isadd
+			function isadd(){
+				let addtype = $(".sw-con-right").children().eq(1).find("div:last").find("tbody").find("tr");
+				let cla;
+				for (let i=0;i<addtype.length;i++) {
+					let trcu = $(addtype[i]).attr("data-cu");
+					if(trcu&&trcu.indexOf("[L")!=-1){
+						cla = "."+ $(addtype[i]).attr("data-ch");
+					}
+				}		
+				if(!initLengh){
+					initLengh = $(cla).length;
+				}
+				for (let j=0;j<initLengh;j++) {
+					let nhtml =  $(cla).eq(j).clone();
+					$(cla).eq($(cla).length-1).after(nhtml);
+				}
+			}
+			//发送请求
+			function postRequest(){
+				let ntab = $(".layui-tab-content .layui-show").find("tbody tr");
+				sev = $(".layui-tab-content .layui-show").find(".outtable").attr("data-sev");
+				met = $(".layui-tab-content .layui-show").find(".outtable").attr("data-met");
+				let nparam;
+				let beantype
+				for (let k=0;k<ntab.length;k++) {
+					let oneType = $(ntab[k]).attr("class");
+					if(!oneType){
+						let twoType = $(ntab[k]).attr("data-type");
+						if(twoType){
+							let lastTd =  $(ntab[k]).find("input").val();
+							let btype =  $(ntab[k]).find("td").eq(2).text();
+							if(btype=="String"){
+								lastTd = "\""+lastTd + "\"";
+							}
+							nparam?nparam = nparam+","+lastTd:nparam = lastTd;
+						}else{
+							let threeType = $(ntab[k]).attr("data-ch");
+							if(threeType){
+								let chDom = $(".layui-tab-content .layui-show").find("."+threeType);
+								let cutype = $(ntab[k]).attr("data-cu");
+								if(cutype.indexOf("[L")==-1){
+									let paramMap = {};
+									for (let h=0;h<chDom.length;h++) {
+										let firstTd = $(chDom[h]).find("td:first").text();
+										let inpt = $(chDom[h]).find("input").val();
+										paramMap[firstTd] = inpt;
+									}
+									paramMap = JSON.stringify(paramMap)
+									nparam?nparam = nparam+","+paramMap:nparam = paramMap;
+								}else{
+									let paramMap1 = {};
+									let parray = [];
+									for (let h=0;h<chDom.length;h++) {
+										let firstTd = $(chDom[h]).find("td:first").text();
+										let inpt = $(chDom[h]).find("input").val();
+										paramMap1[firstTd] = inpt;
+										let myh = h+1;
+										if(h!=0&&initLengh&&myh%initLengh==0){
+//											paramMap1[firstTd] = inpt;
+											parray.push(paramMap1);
+											paramMap1 = {};
+										}
+//										else{
+//											paramMap1[firstTd] = inpt;
+//										}
+										
+									}
+									if(!initLengh){
+										paramMap1 = "["+ JSON.stringify(paramMap1)+"]";
+									}else{
+										paramMap1 = JSON.stringify(parray);
+									}
+									
+									nparam?nparam = nparam+","+paramMap1:nparam = paramMap1;
+								}
+//									let paramMap = {};
+//									for (let h=0;h<chDom.length;h++) {
+//										let firstTd = $(chDom[h]).find("td:first").text();
+//										let inpt = $(chDom[h]).find("input").val();
+//										paramMap[firstTd] = inpt;
+//									}
+//									paramMap = JSON.stringify(paramMap);
+//									if(cutype.indexOf("[L")!=-1){
+//										paramMap = "["+paramMap+"]"
+//									}
+//									nparam?nparam = nparam+","+paramMap:nparam = paramMap;
+								
+								
+								
+							}
+						}
+					}
+					
+					
+				
+				}
+//     			console.log('let ser = new '+sev+'()');
+//     			console.log('let result = ser.'+met+'('+nparam+')');
+				let options = {
+			      collapsed: false,
+			      withQuotes: true
+			    };
+			    let sdom = $(".layui-tab-content .layui-show").find(".sw-con-bottom");
+        		eval('let ser = new '+sev+'();let result = ser.'+met+'('+nparam+');result=JSON.parse(result);sdom.jsonViewer(result, options);');	
+			};
+			
+			//导出word文档使用
+			function wordHtml(data){
+				let whtml = '<button type="button" class="layui-btn layui-btn-danger" onclick="exportWord()">导出word</button><div class="whtml"></div>';				
+				element.tabAdd('demo', {
+				  title: '文档管理',
+				  content: whtml
+				});
+				let downHtml = '<p><strong>'+data.info.title+'</strong></p><p><strong>作者</strong>: '+data.info.contact.name+'</p>'
+							  +'<p><strong>版本</strong>: '+data.info.version+'</p><p><strong>host</strong>: '+data.host+'</p>'	
+							  +'<p><strong>basePath</strong>: '+data.basePath+'</p><p><strong>接口说明:</strong></p>'
+				for (let x in param) {
+//					let sevr = '<p><strong>serviceName</strong>:'+x+'</p>'
+					for (let item in param[x]) {
+						let paramName = '<p><strong>serviceName</strong>: '+x+'</p><p><strong>methodName</strong>:'+item+'</p><table class="layui-table">'
+						+'<colgroup><col width="200"><col width="300"><col width="200"><col></colgroup><thead>'
+						+' <tr><th>参数名称</th><th>参数说明</th><th>参数类型</th><th>必填</th></tr></thead><tbody>'
+//						
+						param[x][item].forEach(function(v,i){
+							paramName = paramName + '<tr><td>'+v.beanName+'</td><td>'+v.description+'</td><td>'+v.beanType+'</td><td>'+v.required+'</td></tr>'
+						});
+						paramName = paramName + '</tbody></table>';
+						downHtml = downHtml + paramName;
+                        downHtml = downHtml + "<br/>"
+					}
+
+				}
+				$(".whtml").append(downHtml);
+			}
+			
+				
+			
+		})
+		//展开收起事件
+		function detailParam(that,clname){
+			let ncla = that.find("span").attr("class");
+			
+			if(ncla=="icon iconfont icon-right"){
+				that.find("span").removeClass("icon iconfont icon-right").addClass("icon iconfont icon-down");
+			}else{
+				that.find("span").removeClass("icon iconfont icon-down").addClass("icon iconfont icon-right");
+			}
+			$("."+clname).toggle();
+				
+			}
+		//beanclass判断’
+		function beanClass(beanType){
+			let myparam;
+			switch (beanType){
+				case "java.util.Map":myparam="{}";
+					break;
+				case "java.util.HashMap":myparam="{}";
+					break;
+				case "java.util.LinkedHashMap":myparam="{}";
+					break;
+				case "java.lang.Boolean":myparam="true,false"
+					break;	
+				case "java.lang.Float":myparam = "0.00";
+				
+					break;
+				case "java.lang.Double":myparam = "0.00";
+					break;
+				case "java.util.List":myparam = "[]";
+					break;
+				case "java.util.ArrayList":myparam = "[]";
+					break;	
+				default:
+					myparam = "";
+					break;	
+			}
+			if(beanType.indexOf("[L")!=-1){
+				myparam = "[]";
+			}
+			return myparam;
+		}
+	//导出
+	function exportWord(){
+		$(".whtml").wordExport("apiList");
+//		$("#content").wordExport("fileName");    
+	}
+		//"java.util.Map" {}
+//"java.util.HashMap" {}
+//"java.util.LinkedHashMap" {}
+//"java.util.Map" {}
+
+//"java.lang.Boolean" true/false
+//"java.lang.String" ""
+//"java.lang.Integer" 0
+//"java.lang.Short" ''
+//"java.lang.Byte" ''
+//"java.lang.Long" 0
+//"java.lang.Float" 0.00
+//"java.lang.Double" 0.00
+//"java.util.List" []
+//"java.util.ArrayList" []
+//"com.das.****" {"key":"val"}
+//"beanClass": "[Ljava.lang.String;",  []
+// "beanClass": "[Lcom.das.****;", [{"key":"val"}]
+	</script>
+
+</html>		

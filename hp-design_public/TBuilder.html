@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>layui</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--<link rel="stylesheet" href="layer/mobile/need/layer.css" media="all">-->
+		<link rel="stylesheet" href="bootstrap3.0/css/bootstrap.min.css" />	
+		<link rel="stylesheet" href="layer/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/my-css/combo.select.css" />
+		<!--<script src="layer/layer.js"></script>-->
+		<script src="layer/layui/layui.js"></script>
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/jq-plugIn/jquery.combo.select.js"></script>
+		<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	</head>
+	
+	<body>
+		<button type="button" id="btn">click</button>
+		<input type="text" />
+		<button type="button" id="btn2">add</button>
+		<table class="table tab-bordered">
+			<tr>
+				<td>a12</td><td>a11</td><td>a19</td>
+			</tr>
+			<tr>
+				<td>b12</td><td>b11</td><td>b19</td>
+			</tr>
+			<tr>
+				<td>c12</td><td>c11</td><td>c19</td>
+			</tr>
+		</table>
+		<script>
+			let aa = 2%2
+			console.log(aa)
+//			let my = "{'a':'a'},1"
+//			my = eval('('+ my +')')
+//			let a1 = {"a":"1"};
+//			a1 = JSON.stringify(a1);
+//			let my = a1+","+"1"
+//			eval('test('+my+')');
+//			let a1 = '[{"a":"1"}]'
+//			eval('console.log('+a1+')')
+			
+			function test (my,aa){
+				console.log(my)
+			}
+			 $("input").change(function(){
+			 	let val = $(this).val();
+			 	let my = val+","+"1";
+			 	console.log(my)
+//			 	console.log('function aa('+my+'){console.log(my)}')
+//			 	eval('function aa('+my+'){console.log(my)}')
+			 	
+//			 	eval(testService.add({},0,""));
+			 });
+			 
+//			 let a1 = {"a":"1"}
+//			 let a2 = 1
+//			 aa({"a":"1"},1)
+//			 function aa({"a":"1"},1){
+//			 	
+//			 	console.log(a1)
+//			 	}
+
+
+//			$("#btn").click(function(){
+//			let vl = $("input").val();
+//			$("table tbody tr").hide().filter(":contains('"+vl+"')").show();
+//			 });
+//			 $("table tbody tr").click(function(){
+//			 	$("input").val($(this).children().eq(0).text())
+//			 });
+//			 
+//			 $("input").keyup(function(){
+//			 	let vl = $(this).val();
+//			 	$("table tbody tr").hide().filter(":contains('"+vl+"')").show();
+//			 });
+		</script>
+	
+	</body>
+
+</html>

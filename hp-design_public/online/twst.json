@@ -1,0 +1,3834 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "V1.0",
+		"title": "达实智能 hp RESTful API",
+		"contact": {
+			"name": "邮箱：Das@163.com"
+		}
+	},
+	"host": "192.168.123.245:8060",
+	"basePath": "/sch",
+	"tags": [
+		{
+			"name": "base-_-code-control",
+			"description": "Base _ Code Control"
+		}, {
+			"name": "base-_-reg-sch-day-control",
+			"description": "Base _ Reg Sch Day Control"
+		}, {
+			"name": "templet-index-controller",
+			"description": "Templet Index Controller"
+		}, {
+			"name": "export-controller",
+			"description": "Export Controller"
+		}, {
+			"name": "operation-handler",
+			"description": "Operation Handler"
+		}, {
+			"name": "call-service-controller",
+			"description": "Call Service Controller"
+		}, {
+			"name": "rest-_-reg-sch-day-control",
+			"description": "Rest _ Reg Sch Day Control"
+		}, {
+			"name": "redirect-data-controller",
+			"description": "Redirect Data Controller"
+		}, {
+			"name": "data-index-controller",
+			"description": "Data Index Controller"
+		}, {
+			"name": "content-index-controller",
+			"description": "Content Index Controller"
+		}, {
+			"name": "web-mvc-endpoint-handler-mapping",
+			"description": "Web Mvc Endpoint Handler Mapping"
+		}, {
+			"name": "subject-index-controller",
+			"description": "Subject Index Controller"
+		}, {
+			"name": "js-css-data-controller",
+			"description": "Js Css Data Controller"
+		}, {
+			"name": "gen-controller",
+			"description": "Gen Controller"
+		}, {
+			"name": "html-data-controller",
+			"description": "Html Data Controller"
+		}, {
+			"name": "rest-_-code-control",
+			"description": "Rest _ Code Control"
+		}
+	],
+	"paths": {
+		"/actuator": {
+			"get": {
+				"tags": [
+					"web-mvc-endpoint-handler-mapping"
+				],
+				"summary": "links",
+				"operationId": "linksUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json",
+					"application/vnd.spring-boot.actuator.v2+json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object",
+								"additionalProperties": {
+									"$ref": "#/definitions/Link"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/actuator/health": {
+			"get": {
+				"tags": [
+					"operation-handler"
+				],
+				"summary": "handle",
+				"operationId": "handleUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json",
+					"application/vnd.spring-boot.actuator.v2+json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "body",
+						"required": false,
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "string"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/actuator/info": {
+			"get": {
+				"tags": [
+					"operation-handler"
+				],
+				"summary": "handle",
+				"operationId": "handleUsingGET_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json",
+					"application/vnd.spring-boot.actuator.v2+json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "body",
+						"required": false,
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "string"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/base/Code/query": {
+			"get": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingHEAD",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingDELETE",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingOPTIONS",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"base-_-code-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/base/RegSchDay/add": {
+			"get": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingHEAD",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingDELETE",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingOPTIONS",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "add",
+				"operationId": "addUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/base/RegSchDay/delete": {
+			"get": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingHEAD",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingDELETE",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingOPTIONS",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "delete",
+				"operationId": "deleteUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/base/RegSchDay/query": {
+			"get": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingGET_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingHEAD_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPUT_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingDELETE_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingOPTIONS_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "query",
+				"operationId": "queryUsingPATCH_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/base/RegSchDay/update": {
+			"get": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingHEAD",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingDELETE",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingOPTIONS",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"base-_-reg-sch-day-control"
+				],
+				"summary": "update",
+				"operationId": "updateUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/hp-design/api-docs": {
+			"get": {
+				"tags": [
+					"call-service-controller"
+				],
+				"summary": "apisDocs",
+				"operationId": "apisDocsUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/apis": {
+			"get": {
+				"tags": [
+					"call-service-controller"
+				],
+				"summary": "apis",
+				"operationId": "apisUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/content/add": {
+			"put": {
+				"tags": [
+					"content-index-controller"
+				],
+				"summary": "add",
+				"operationId": "addUsingPUT_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "contentIndexForm",
+						"description": "contentIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ContentIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/content/del/{ctName}": {
+			"delete": {
+				"tags": [
+					"content-index-controller"
+				],
+				"summary": "del",
+				"operationId": "delUsingDELETE",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "ctName",
+						"in": "path",
+						"description": "ctName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/hp-design/content/upd/{ctName}": {
+			"post": {
+				"tags": [
+					"content-index-controller"
+				],
+				"summary": "upd",
+				"operationId": "updUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "ctName",
+						"in": "path",
+						"description": "ctName",
+						"required": true,
+						"type": "string"
+					}, {
+						"in": "body",
+						"name": "contentIndexForm",
+						"description": "contentIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ContentIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/content/{ctName}": {
+			"get": {
+				"tags": [
+					"content-index-controller"
+				],
+				"summary": "data",
+				"operationId": "dataUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "ctName",
+						"in": "path",
+						"description": "ctName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/data/add": {
+			"put": {
+				"tags": [
+					"data-index-controller"
+				],
+				"summary": "add",
+				"operationId": "addUsingPUT_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "dataIndexForm",
+						"description": "dataIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DataIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/data/del/{uiName}": {
+			"delete": {
+				"tags": [
+					"data-index-controller"
+				],
+				"summary": "del",
+				"operationId": "delUsingDELETE_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "uiName",
+						"in": "path",
+						"description": "uiName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/hp-design/data/upd/{uiName}": {
+			"post": {
+				"tags": [
+					"data-index-controller"
+				],
+				"summary": "upd",
+				"operationId": "updUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "uiName",
+						"in": "path",
+						"description": "uiName",
+						"required": true,
+						"type": "string"
+					}, {
+						"in": "body",
+						"name": "dataIndexForm",
+						"description": "dataIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DataIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/data/{uiName}": {
+			"get": {
+				"tags": [
+					"data-index-controller"
+				],
+				"summary": "data",
+				"operationId": "dataUsingGET_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "uiName",
+						"in": "path",
+						"description": "uiName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/exportWar/{subjectName}": {
+			"get": {
+				"tags": [
+					"export-controller"
+				],
+				"summary": "exportWar",
+				"operationId": "exportWarUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/exportZip/{subjectName}": {
+			"get": {
+				"tags": [
+					"export-controller"
+				],
+				"summary": "exportZip",
+				"operationId": "exportZipUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/html/save": {
+			"put": {
+				"tags": [
+					"html-data-controller"
+				],
+				"summary": "save",
+				"operationId": "saveUsingPUT",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "htmlDataForm",
+						"description": "htmlDataForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/HtmlDataForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/jscss/get": {
+			"get": {
+				"tags": [
+					"js-css-data-controller"
+				],
+				"summary": "get",
+				"operationId": "getUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/jscss/get/{fileName}": {
+			"get": {
+				"tags": [
+					"js-css-data-controller"
+				],
+				"summary": "getByName",
+				"operationId": "getByNameUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "fileName",
+						"in": "path",
+						"description": "fileName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/jscss/getContent/{fileName}": {
+			"get": {
+				"tags": [
+					"js-css-data-controller"
+				],
+				"summary": "getContent",
+				"operationId": "getContentUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "fileName",
+						"in": "path",
+						"description": "fileName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/jscss/root": {
+			"get": {
+				"tags": [
+					"js-css-data-controller"
+				],
+				"summary": "root",
+				"operationId": "rootUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/jscss/save": {
+			"post": {
+				"tags": [
+					"js-css-data-controller"
+				],
+				"summary": "save",
+				"operationId": "saveUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "jsCssDataForm",
+						"description": "jsCssDataForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/JsCssDataForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/redirect/get/{uiName}": {
+			"get": {
+				"tags": [
+					"redirect-data-controller"
+				],
+				"summary": "get",
+				"operationId": "getUsingGET_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "uiName",
+						"in": "path",
+						"description": "uiName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/redirect/save": {
+			"put": {
+				"tags": [
+					"redirect-data-controller"
+				],
+				"summary": "save",
+				"operationId": "saveUsingPUT_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "redirectDataForm",
+						"description": "redirectDataForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RedirectDataForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/add": {
+			"put": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "add",
+				"operationId": "addUsingPUT_3",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "subjectIndexForm",
+						"description": "subjectIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/SubjectIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/del/{subjectName}": {
+			"delete": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "del",
+				"operationId": "delUsingDELETE_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/first/{subjectName}": {
+			"get": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "first",
+				"operationId": "firstUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/list": {
+			"get": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "list",
+				"operationId": "listUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/upd/{subjectName}": {
+			"post": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "upd",
+				"operationId": "updUsingPOST_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}, {
+						"in": "body",
+						"name": "subjectIndexForm",
+						"description": "subjectIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/SubjectIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/subject/{subjectName}": {
+			"get": {
+				"tags": [
+					"subject-index-controller"
+				],
+				"summary": "data",
+				"operationId": "dataUsingGET_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "subjectName",
+						"in": "path",
+						"description": "subjectName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/templet/add": {
+			"put": {
+				"tags": [
+					"templet-index-controller"
+				],
+				"summary": "add",
+				"operationId": "addUsingPUT_4",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "templetIndexForm",
+						"description": "templetIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TempletIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/templet/del/{TempletName}": {
+			"delete": {
+				"tags": [
+					"templet-index-controller"
+				],
+				"summary": "del",
+				"operationId": "delUsingDELETE_3",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "TempletName",
+						"in": "path",
+						"description": "TempletName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				}
+			}
+		},
+		"/hp-design/templet/list": {
+			"get": {
+				"tags": [
+					"templet-index-controller"
+				],
+				"summary": "list",
+				"operationId": "listUsingGET_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/templet/upd/{templetName}": {
+			"post": {
+				"tags": [
+					"templet-index-controller"
+				],
+				"summary": "upd",
+				"operationId": "updUsingPOST_3",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "templetName",
+						"in": "path",
+						"description": "templetName",
+						"required": true,
+						"type": "string"
+					}, {
+						"in": "body",
+						"name": "templetIndexForm",
+						"description": "templetIndexForm",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TempletIndexForm"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-design/templet/{templetName}": {
+			"get": {
+				"tags": [
+					"templet-index-controller"
+				],
+				"summary": "data",
+				"operationId": "dataUsingGET_3",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "templetName",
+						"in": "path",
+						"description": "templetName",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OkResponse"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-generate/gen/list/{dbType}": {
+			"post": {
+				"tags": [
+					"gen-controller"
+				],
+				"summary": "list",
+				"operationId": "listUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "dbType",
+						"in": "path",
+						"description": "dbType",
+						"required": true,
+						"type": "string"
+					}, {
+						"in": "body",
+						"name": "tableInfo",
+						"description": "tableInfo",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/TableInfo"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/TableInfo"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/hp-generate/gen/{dbType}/{tables}": {
+			"get": {
+				"tags": [
+					"gen-controller"
+				],
+				"summary": "table",
+				"operationId": "tableUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "dbType",
+						"in": "path",
+						"description": "dbType",
+						"required": true,
+						"type": "string"
+					}, {
+						"name": "tables",
+						"in": "path",
+						"description": "tables",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/Code/query": {
+			"post": {
+				"tags": [
+					"rest-_-code-control"
+				],
+				"summary": "查询基础字典",
+				"description": "查询基础字典",
+				"operationId": "queryUsingPOST_2",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/com.das.sch.service.C_Code_queryEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/RegSchDay/add": {
+			"post": {
+				"tags": [
+					"rest-_-reg-sch-day-control"
+				],
+				"summary": "增加日班表",
+				"description": "增加日班表",
+				"operationId": "addUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/com.das.sch.service.C_RegSchDay_addEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/RegSchDay/delete": {
+			"post": {
+				"tags": [
+					"rest-_-reg-sch-day-control"
+				],
+				"summary": "删除日班表",
+				"description": "删除日班表",
+				"operationId": "deleteUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/com.das.sch.service.C_RegSchDay_deleteEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/RegSchDay/query": {
+			"post": {
+				"tags": [
+					"rest-_-reg-sch-day-control"
+				],
+				"summary": "查找日班表",
+				"description": "查找日班表",
+				"operationId": "queryUsingPOST_3",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/com.das.sch.service.C_RegSchDay_queryEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/rest/RegSchDay/update": {
+			"post": {
+				"tags": [
+					"rest-_-reg-sch-day-control"
+				],
+				"summary": "修改日班表",
+				"description": "修改日班表",
+				"operationId": "updateUsingPOST_1",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param0",
+						"description": "param0",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/com.das.sch.service.C_RegSchDay_updateEntity"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "boolean"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"com.das.sch.service.C_Code_queryEntity": {
+			"type": "object",
+			"required": [
+				"key",
+				"pageNumber",
+				"pageSize"
+			],
+			"properties": {
+				"key": {
+					"type": "string",
+					"description": "关键字"
+				},
+				"pageNumber": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "条数"
+				}
+			},
+			"description": "入参对象"
+		},
+		"com.das.sch.entity.postgres.RegSchDay": {
+			"type": "object",
+			"properties": {
+				"admDate": {
+					"type": "string",
+					"description": "看诊日期"
+				},
+				"admType": {
+					"type": "string",
+					"description": "门急住别"
+				},
+				"clinicRoomNo": {
+					"type": "string",
+					"description": "诊间号"
+				},
+				"createDate": {
+					"type": "string",
+					"description": "创建时间"
+				},
+				"regionCode": {
+					"type": "string",
+					"description": "区域代码"
+				},
+				"sessionCode": {
+					"type": "string",
+					"description": "时段代码"
+				},
+				"uuid": {
+					"type": "string",
+					"description": "uuid"
+				},
+				"version": {
+					"type": "string",
+					"description": "版本号"
+				}
+			},
+			"description": "日班表索引"
+		},
+		"TempletIndexForm": {
+			"type": "object",
+			"properties": {
+				"author": {
+					"type": "string"
+				},
+				"createTime": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"desc": {
+					"type": "string"
+				},
+				"firstJson": {
+					"type": "string"
+				},
+				"pathData": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Map«string,object»"
+					}
+				},
+				"templetName": {
+					"type": "string"
+				},
+				"updateTime": {
+					"$ref": "#/definitions/Timestamp"
+				}
+			}
+		},
+		"com.das.sch.service.C_RegSchDay_addEntity": {
+			"type": "object",
+			"required": [
+				"regSchDayData"
+			],
+			"properties": {
+				"regSchDayData": {
+					"description": "日班表数据",
+					"$ref": "#/definitions/com.das.sch.entity.mongo.RegSchDayData"
+				}
+			},
+			"description": "入参对象"
+		},
+		"com.das.sch.service.C_RegSchDay_queryEntity": {
+			"type": "object",
+			"required": [
+				"regSchDay"
+			],
+			"properties": {
+				"regSchDay": {
+					"description": "日班表索引",
+					"$ref": "#/definitions/com.das.sch.entity.postgres.RegSchDay"
+				}
+			},
+			"description": "入参对象"
+		},
+		"OkResponse": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				}
+			}
+		},
+		"Map«string,Link»": {
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "#/definitions/Link"
+			}
+		},
+		"ColumnInfo": {
+			"type": "object",
+			"properties": {
+				"attrName": {
+					"type": "string"
+				},
+				"attrType": {
+					"type": "string"
+				},
+				"attrname": {
+					"type": "string"
+				},
+				"columnComment": {
+					"type": "string"
+				},
+				"columnName": {
+					"type": "string"
+				},
+				"configInfo": {
+					"$ref": "#/definitions/ColumnConfigInfo"
+				},
+				"dataType": {
+					"type": "string"
+				}
+			}
+		},
+		"RedirectDataForm": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "string"
+				},
+				"uiName": {
+					"type": "string"
+				}
+			}
+		},
+		"HtmlDataForm": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"uiName": {
+					"type": "string"
+				}
+			}
+		},
+		"com.das.sch.entity.mongo.RegSchDayData": {
+			"type": "object",
+			"properties": {
+				"_id": {
+					"type": "string"
+				},
+				"admDate": {
+					"type": "string",
+					"description": "看诊日期"
+				},
+				"admType": {
+					"type": "string",
+					"description": "门急住别"
+				},
+				"clinicRoomNo": {
+					"type": "string",
+					"description": "诊间号"
+				},
+				"clinicTmpFlg": {
+					"type": "string",
+					"description": "临时诊否"
+				},
+				"clinicTypeCode": {
+					"type": "string",
+					"description": "号别"
+				},
+				"drCode": {
+					"type": "string",
+					"description": "看诊医生"
+				},
+				"maxQue": {
+					"type": "string",
+					"description": "最大诊号"
+				},
+				"optDate": {
+					"type": "string",
+					"description": "操作时间"
+				},
+				"optTerm": {
+					"type": "string",
+					"description": "操作终端"
+				},
+				"optUser": {
+					"type": "string",
+					"description": "操作用户"
+				},
+				"queGroupCode": {
+					"type": "string",
+					"description": "给号组别"
+				},
+				"queNo": {
+					"type": "string",
+					"description": "诊号"
+				},
+				"realDeptCode": {
+					"type": "string",
+					"description": "实看科别"
+				},
+				"realDrCode": {
+					"type": "string",
+					"description": "实看医师"
+				},
+				"refrsnCode": {
+					"type": "string",
+					"description": "停诊原因"
+				},
+				"regSpecialNumber": {
+					"type": "string",
+					"description": "regSpecialNumber"
+				},
+				"regionCode": {
+					"type": "string",
+					"description": "区域代码"
+				},
+				"sessionCode": {
+					"type": "string",
+					"description": "时段代码"
+				},
+				"stopSession": {
+					"type": "string",
+					"description": "停诊否"
+				},
+				"vipFlg": {
+					"type": "string",
+					"description": "vip标注"
+				},
+				"westMediFlg": {
+					"type": "string",
+					"description": "中西医标记"
+				}
+			},
+			"description": "日班表数据"
+		},
+		"Timestamp": {
+			"type": "object",
+			"properties": {
+				"date": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"day": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hours": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"minutes": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"month": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"nanos": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"seconds": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"time": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"timezoneOffset": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"year": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"ColumnConfigInfo": {
+			"type": "object",
+			"properties": {
+				"title": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		},
+		"DataIndexForm": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "object"
+				},
+				"desc": {
+					"type": "string"
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"uiName": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"versionData": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Map«string,object»"
+					}
+				}
+			}
+		},
+		"JsCssDataForm": {
+			"type": "object",
+			"properties": {
+				"data": {
+					"type": "string"
+				},
+				"fileName": {
+					"type": "string"
+				}
+			}
+		},
+		"com.das.sch.service.C_RegSchDay_deleteEntity": {
+			"type": "object",
+			"required": [
+				"regSchDay"
+			],
+			"properties": {
+				"regSchDay": {
+					"description": "日班表索引数据",
+					"$ref": "#/definitions/com.das.sch.entity.postgres.RegSchDay"
+				}
+			},
+			"description": "入参对象"
+		},
+		"ContentIndexForm": {
+			"type": "object",
+			"properties": {
+				"ctName": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object"
+				},
+				"desc": {
+					"type": "string"
+				},
+				"templetName": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"versionData": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Map«string,object»"
+					}
+				}
+			}
+		},
+		"Map«string,object»": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object"
+			}
+		},
+		"SubjectIndexForm": {
+			"type": "object",
+			"properties": {
+				"author": {
+					"type": "string"
+				},
+				"createTime": {
+					"$ref": "#/definitions/Timestamp"
+				},
+				"desc": {
+					"type": "string"
+				},
+				"firstJson": {
+					"type": "string"
+				},
+				"pathData": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Map«string,object»"
+					}
+				},
+				"subjectName": {
+					"type": "string"
+				},
+				"updateTime": {
+					"$ref": "#/definitions/Timestamp"
+				}
+			}
+		},
+		"TableInfo": {
+			"type": "object",
+			"properties": {
+				"className": {
+					"type": "string"
+				},
+				"classname": {
+					"type": "string"
+				},
+				"columns": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ColumnInfo"
+					}
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"params": {
+					"type": "object"
+				},
+				"primaryKey": {
+					"$ref": "#/definitions/ColumnInfo"
+				},
+				"primaryKeys": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ColumnInfo"
+					}
+				},
+				"remark": {
+					"type": "string"
+				},
+				"searchValue": {
+					"type": "string"
+				},
+				"tableComment": {
+					"type": "string"
+				},
+				"tableName": {
+					"type": "string"
+				},
+				"updateBy": {
+					"type": "string"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"com.das.sch.service.C_RegSchDay_updateEntity": {
+			"type": "object",
+			"required": [
+				"regSchDayData"
+			],
+			"properties": {
+				"regSchDayData": {
+					"description": "日班表数据",
+					"$ref": "#/definitions/com.das.sch.entity.mongo.RegSchDayData"
+				}
+			},
+			"description": "入参对象"
+		},
+		"Link": {
+			"type": "object",
+			"properties": {
+				"href": {
+					"type": "string"
+				},
+				"templated": {
+					"type": "boolean"
+				}
+			}
+		}
+	}
+}

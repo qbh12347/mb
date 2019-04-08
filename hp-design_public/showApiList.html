@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示方法列表</title>
+    <style>
+        .das-table {
+            margin-top: 10px;
+            display: table;
+            border-collapse: separate;
+            border-top: 1px black solid;
+            width: 100%;
+        }
+
+        .das-row {
+            display: table-row;
+        }
+
+        .das-row div {
+            display: table-cell;
+            text-indent: 5px;
+        }
+
+        .das-column-title {
+            font-weight: bolder;
+            width: 20%;
+            border-bottom: 1px black solid;
+            border-right: 1px black solid;
+            border-left: 1px black solid;
+        }
+
+        .das-column {
+            width: 80%;
+            border-bottom: 1px black solid;
+            border-right: 1px black solid;
+        }
+
+        .das-column textarea{
+            width:90%;
+        }
+    </style>
+</head>
+<body>
+<h2>可调用方法列表<label id="num-label"></label></h2>
+<div id="das-main-container">
+
+</div>
+
+</body>
+<script src="bootstrap3.0/js/jquery-3.3.1.min.js"></script>
+<!--<script type="text/javascript" src="http://192.168.123.52:8090/hp/factoryjs/bean.js"></script>-->
+<!--<script type="text/javascript" src="http://192.168.123.52:8090/hp/factoryjs/service.js"></script>-->
+<script>
+    function init() {
+
+        var url = location.href.replace("showApiList.html","");
+
+        $.when(
+            $.getScript( url+"factoryjs/bean.js" ),
+            $.getScript( url+"factoryjs/service.js" )
+            // $.Deferred(function( deferred ){
+            //
+            // })
+        ).done(function(){
+            $("#das-main-container").empty();
+            $.ajax({
+                async: false,
+                type: 'GET',
+                url: url+"apis",
+                contentType: "application/json",
+                // header:{
+                //     "Access-Allow-Credentials":true,
+                //     'Access-Allow-Origin': 'http://localhost:8090'
+                // },
+                // xhrFields: {
+                //     //允许带上凭据
+                //     withCredentials: true
+                // },
+                crossDomain: true,
+                error: function () {
+                    alert("server error");
+                },
+                success: function (result) {
+                    if (result !== undefined && result !== null && result.data !== null) {
+                        var html;
+                        var data = result.data;
+
+                        for (var i = 0; i < data.length; i++) {
+                            html = '<div class="das-table">';
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">作者</div>';
+                            html = html + '<div class="das-column">';
+                            html = html + data[i].author;
+                            html = html + '</div></div>';
+
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">描述</div>';
+                            html = html + '<div class="das-column">';
+                            html = html + data[i].desc;
+                            html = html + '</div></div>';
+
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">类型</div>';
+                            html = html + '<div class="das-column">';
+                            html = html + "/"+data[i].beanName+"/"+data[i].methodName;
+                            html = html + '</div></div>';
+
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">参数</div>';
+                            html = html + '<div class="das-column">';
+
+                            // var params = JSON.parse(data[i].params);
+                            var params = data[i].params;
+                            if(params.length>0){
+                                html = html + '<ui>';
+                                var bean = new BeanFactory();
+                                for ( var j = 0; j <params.length; j++){
+                                    var param= params[j];
+                                    html = html + "<li>"+param.beanType+":<input type='text' id='"+data[i].serviceName+'-'+data[i].methodName+'-'+param.value+"' value='";
+
+                                    if(typeof(bean) != "undefined" && bean != "undefined") {
+                                        var user = bean.newInstance(param.beanName);
+                                        if(typeof(user) != "undefined" && user != "undefined") {
+                                            var str = user.getJsonData();
+                                            html = html + JSON.stringify(str,null,4);
+                                        }
+                                    }
+
+                                    html = html + "' style='width:80%'/></li>";
+                                }
+                                html = html + '</ui>';
+                            }
+
+                            //html = html + data[i].params;
+                            html = html + '</div></div>';
+
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">测试</div>';
+                            html = html + '<div class="das-column">';
+                            html = html + "<input type='button' value='请求' onclick='test(\""+data[i].serviceName+"\",\""+data[i].methodName+"\","+JSON.stringify(data[i].params)+")' />";
+                            html = html + '</div></div>';
+
+                            html = html + '<div class="das-row">';
+                            html = html + '<div class="das-column-title">响应结果</div>';
+                            html = html + '<div class="das-column">';
+                            html = html + "<textarea rows='3' cols='20' id='"+data[i].serviceName+'-'+data[i].methodName+"-resultTxt' readonly></textarea>";
+                            html = html + '</div></div>';
+
+                            html = html + '</div>';
+                            $("#das-main-container").append(html);
+                        }
+
+                        $("#num-label").text("共（" + data.length + "个）");
+                    } else {
+                        alert("empty list");
+                    }
+                }
+            });
+
+        });
+    };
+
+    function test(serviceName,methodName,params){
+        eval(' var service = new '+serviceName+'();');
+        var paramStr = "";
+        var resultTxt = "";
+        var exe = "resultTxt = service."+methodName+"(";
+        if(params.length>0){
+            for ( var j = 0; j <params.length; j++){
+                var param= params[j];
+                var arg = $("#"+serviceName+"-"+methodName+"-"+param.value).val();
+                console.log(param.beanType);
+                // if(param.beanType == 'JavaBean')
+                //     exe = exe + arg + ",";
+                // else if(param.beanType == 'String')
+                //     exe = exe + "\""+arg + "\"" + ",";
+                // else if(param.beanType == '')
+                if(param.beanType == 'String')
+                    exe = exe + "\""+arg + "\"" + ",";
+                else
+                    exe = exe + arg + ",";
+            }
+            exe = exe.substring(0,exe.length-1)+");";
+            eval(exe);
+            //eval('resultTxt = service.'+methodName+'('+paramStr.substring(0,paramStr.length-1)+');');
+        }else{
+            exe = exe + ");";
+            eval(exe);
+        }
+        console.log(exe);
+        eval($("#"+serviceName+"-"+methodName+"-resultTxt").val(""));
+        var ssss= resultTxt;
+        var obj = JSON.parse(ssss);
+        eval(
+            $("#"+serviceName+"-"+methodName+"-resultTxt").val(
+                JSON.stringify(obj,null,4)
+            )
+        );
+
+
+        //var service = new serviceName();
+        // service.methodName();
+        // alert(1111);
+    };
+
+    /**
+     * 退出功能
+     */
+    function getMyCookie(name){
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+
+    function delCookie(name){
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval=getMyCookie(name);
+        if(cval!=null)
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString()+";path=/";
+    }
+    //退出功能
+    $(function(){
+        $("#exit").click(function(){
+            // delCookie("userInfo");
+            delCookie("JSESSIONID");
+
+            //location.href="http://localhost:8080/blog-web/";
+        });
+    });
+
+    init();
+</script>
+</html>

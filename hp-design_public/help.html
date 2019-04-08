@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="bootstrap3.0/css/bootstrap.min.css" />
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js" ></script>	
+		<script type="text/javascript" src="bootstrap3.0/js/bootstrap.min.js" ></script>
+		<title>help文档</title>
+		<style>
+			html, body, .help-all{
+				width: 100%;
+				height: 100%;
+			}
+			.help-all .help-top{color: white;height: 50px;width: 100%;background-color: #4887bd;line-height: 50px;font-size: 20px;padding-left: 20px;}
+			.help-all .help-con{width: 100%;display: flex;height: 92%;}
+			.help-con .help-left{width: 250px;background-color: 1px solid #DDDDDD;height: 100%;overflow-y: scroll;}
+			.help-con .help-right{width: 500px;margin-left: 10px;flex: 1 1 auto;border: 1px solid #DDDDDD;overflow-y: scroll;padding-left: 20px;}
+			.help-con .help-right table{margin-top: 10px;}
+			.help-con .help-right thead tr{background-color: #555;color: white;}
+			.help-con .help-right tbody tr td{line-height: 30px;}
+			.help-con .help-right tbody tr td span{color: red;}
+			.help-con .help-right tbody tr td:first-child{width: 100px;}
+		</style>
+	</head>
+	<body>
+		<div class="help-all">
+			<div class="help-top">HELP文档</div>
+			<div class="help-con">
+				<div class="help-left">
+					<ul class="list-group">
+						<li class="list-group-item">name</li>
+						<li class="list-group-item">id</li>
+						<li class="list-group-item">width</li>
+						<li class="list-group-item">height</li>
+						<li class="list-group-item">fontSize</li>
+						<li class="list-group-item">fontColor</li>
+						<li class="list-group-item">bgColor</li>
+						<li class="list-group-item">fontFamily</li>
+						<li class="list-group-item">fontStyle</li>
+						<li class="list-group-item">fontWeight</li>
+						<li class="list-group-item">className</li>
+						<li class="list-group-item">text</li>
+						<li class="list-group-item">cmAttribute</li>
+						<li class="list-group-item">visible</li>
+						<li class="list-group-item">border</li>
+						<li class="list-group-item">tips</li>
+						<li class="list-group-item">posType</li>
+						<li class="list-group-item">top</li>
+						<li class="list-group-item">bottom</li>
+						<li class="list-group-item">zIndex</li>
+						<li class="list-group-item">left</li>
+						<li class="list-group-item">textAlign</li>
+						<li class="list-group-item">lineHeight</li>
+						<li class="list-group-item">cursor</li>
+						<li class="list-group-item">margin</li>
+						<li class="list-group-item">padding</li>
+						<li class="list-group-item">float</li>
+						<li class="list-group-item">order</li>
+						<li class="list-group-item">flex</li>
+						<li class="list-group-item">alignSelf</li>
+						<li class="list-group-item">flexDirection</li>
+						<li class="list-group-item">flexWrap</li>
+						<li class="list-group-item">justifyContent</li>
+						<li class="list-group-item">alignItems</li>
+						<li class="list-group-item">alignContent</li>
+						<li class="list-group-item">display</li>
+						<li class="list-group-item">overflow</li>
+						<li class="list-group-item">sm</li>
+						<li class="list-group-item">md</li>
+						<li class="list-group-item">lg</li>
+						<li class="list-group-item">xs</li>
+						<li class="list-group-item">imgName</li>
+						<li class="list-group-item">dateType</li>
+						<li class="list-group-item">range</li>
+						<li class="list-group-item">format</li>
+						<li class="list-group-item">min</li>
+						<li class="list-group-item">max</li>
+						<li class="list-group-item">lang</li>
+						<li class="list-group-item">theme</li>
+						<li class="list-group-item">checkedIcon</li>
+						<li class="list-group-item">collapseIcon</li>
+						<li class="list-group-item">emptyIcon</li>
+						<li class="list-group-item">enableLinks</li>
+						<li class="list-group-item">expandIcon</li>
+						<li class="list-group-item">highResult</li>
+						<li class="list-group-item">highSelected</li>
+						<li class="list-group-item">onhoverColor</li>
+						<li class="list-group-item">levels</li>
+						<li class="list-group-item">nodeIcon</li>
+						<li class="list-group-item">selectedIcon</li>
+						<li class="list-group-item">seltedBgColor</li>
+						<li class="list-group-item">showBorder</li>
+						<li class="list-group-item">showCheckbox</li>
+						<li class="list-group-item">showIcon</li>
+						<li class="list-group-item">showTags</li>
+						<li class="list-group-item">treeData</li>
+						<li class="list-group-item">menuList</li>
+						<!--<li class="list-group-item">ToolBar</li>-->
+						<li class="list-group-item">buttonClass</li>
+						<li class="list-group-item">bgImgUrl</li>
+						<li class="list-group-item">bgSize</li>
+						<li class="list-group-item">bgRepeat</li>
+						<li class="list-group-item">Head</li>
+						<li class="list-group-item">data</li>
+						<li class="list-group-item">rows</li>
+						<li class="list-group-item">cols</li>
+						<li class="list-group-item">tableClass</li>
+						<li class="list-group-item">pageNum</li>
+						<li class="list-group-item">tbBgColor</li>
+						<li class="list-group-item">tbHeadColor</li>
+						<li class="list-group-item">tbBorder</li>
+						<li class="list-group-item">pageIsHide</li>
+						<li class="list-group-item">overflow</li>
+						<li class="list-group-item">title</li>
+						<li class="list-group-item">skin</li>
+						<li class="list-group-item">area</li>
+						<li class="list-group-item">offset</li>
+						<li class="list-group-item">closeBtn</li>
+						<li class="list-group-item">shade</li>
+						<li class="list-group-item">anim</li>
+						<li class="list-group-item">maxmin</li>
+						<li class="list-group-item">fixed</li>
+						<li class="list-group-item">maxWidth</li>
+						<li class="list-group-item">maxHeight</li>
+						<li class="list-group-item">tabType</li>
+						<li class="list-group-item">allowClose</li>
+						<li class="list-group-item">tabTitle</li>
+						<li class="list-group-item">checked</li>
+						<li class="list-group-item">colors</li>
+						<li class="list-group-item">tooltip</li>
+						<li class="list-group-item">grid</li>
+						<li class="list-group-item">legendData</li>
+						<li class="list-group-item">xdata</li>
+						<li class="list-group-item">ydata</li>
+						<li class="list-group-item">sries</li>
+						<li class="list-group-item">bgImgUrl</li>
+						<li class="list-group-item">bgRepeat</li>
+						<li class="list-group-item">bgSize</li>
+						<li class="list-group-item">bgPosition</li>
+						<li class="list-group-item">disabled</li>
+						<li class="list-group-item">item</li>
+						<li class="list-group-item">options</li>
+						<li class="list-group-item">isSearch</li>
+						<li class="list-group-item">clickVal</li>
+						<li class="list-group-item">layoutRows</li>
+						<li class="list-group-item">layoutCols</li>
+						<li class="list-group-item">colWidth</li>
+						<li class="list-group-item">colHeight</li>
+						<li class="list-group-item">rowcolor</li>
+						<li class="list-group-item">addLayoutRows</li>
+						<li class="list-group-item">addParentNode</li>
+						<li class="list-group-item">addLeafNode</li>
+						<li class="list-group-item">setting</li>
+						<li class="list-group-item">delNode</li>
+						
+					</ul>
+				</div>
+				<div class="help-right">
+					<div id="help-name">
+						<table class="table table-bordered">
+							<thead><th colspan="2">name</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件的名称</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入想要的名称即可</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.同页面中名称不能重复<br/>2.当设计baseForm页面时，需要将想要插入html的容器（div）的名称设为“_con”结尾<br/>3.写event时可以使用，用法：name.event</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				    <div id="help-id">
+						<table class="table table-bordered">
+							<thead><th colspan="2">id</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于查看控件的id</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.默认此属性不可更改，可视情况使用</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	       			<div id="help-width">
+						<table class="table table-bordered">
+							<thead><th colspan="2">width</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件的宽度</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入宽度值，例如：100,100px，100%</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.支持“px”和“%”写法，不支持其它单位<br/>
+										2.当单位是“px”时，可以省略单位<br/>
+										3.根据内容自适应大小，设置为：auto
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>			
+					<div id="help-height">
+						<table class="table table-bordered">
+							<thead><th colspan="2">height</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件的高度</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入高度值，例如：100,100px，100%</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.支持“px”和“%”写法，不支持其它单位<br/>
+										2.当单位是“px”时，可以省略单位<br/>
+										3.根据内容自适应大小，设置为：auto
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-fontSize">
+						<table class="table table-bordered">
+							<thead><th colspan="2">fontSize</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置字体大小</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：14px,1.4rem</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.支持“px”和“rem”写法，不支持其它单位</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-fontColor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">fontColor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置字体颜色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>点击选择颜色，或者直接输入颜色值</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.输入颜色值的时候不用输入“#”</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-bgColor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bgColor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置背景颜色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>点击选择颜色，或者直接输入颜色值</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.输入颜色值的时候不用输入“#”</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-fontFamily">
+						<table class="table table-bordered">
+							<thead><th colspan="2">fontFamily</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置字体</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入字体。例如：Arial,Verdana,Sans-serif</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-fontStyle">
+						<table class="table table-bordered">
+							<thead><th colspan="2">fontStyle</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置字体类型</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入字体类型。例如：italic（斜体）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>常见类型：1.normal（默认值，标准的字体）2.italic（斜体）3.oblique（倾斜的字体）4.inherit（从父元素继承字体）</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-fontWeight">
+						<table class="table table-bordered">
+							<thead><th colspan="2">fontWeight</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置字体粗细</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入字体粗细。例如：700</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>常见值：1.normal（默认值，定义标准的字符）2.bold（粗体）3.bolder（更粗）4.lighter（更细）5.或者100~900之间数值</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-className">
+						<table class="table table-bordered">
+							<thead><th colspan="2">className</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件类名</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入类名</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>尽量不要删除默认类名，否则可能会影响页面css，或者js事件</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-text">
+						<table class="table table-bordered">
+							<thead><th colspan="2">text</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置文本</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入文本</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>TPanel，TTabbedPane等容器控件此属性无效</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-cmAttribute">
+						<table class="table table-bordered">
+							<thead><th colspan="2">cmAttribute</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置自定义标签属性</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：data-name,test1;data-id,123</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>1.此属性常用于动态数据时的参数传递<br/>2.这里有两个参数，第一个是属性名称，第二个是值（如果是拿动态数据，这里也可以是key）。当有多个时“;”分号分隔。
+										<br/>3.html效果形如：data-name="test1" data-id="123"
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-visible">
+						<table class="table table-bordered">
+							<thead><th colspan="2">visible</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件是否显示</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-border">
+						<table class="table table-bordered">
+							<thead><th colspan="2">border</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置边框</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>left，right；1px solid #dddddd（左右1像素红色边框）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.如果省略位置，则表示正常显示边框形如：（1px solid red）<br/>
+										2.前面是位置，top，bottom，left，right表示要显示哪个部位的边框，可以一个也可以多个“,”分隔
+									    <br/>3.后面是边框属性，第一位是宽度，第二位是边框样式，第三位是颜色。与前面的位置用“;”分隔
+									    <br/>4.边框的样式有：none（无边框），dotted（点状边框），dashed（虚线），solid（实线），
+										    double（双线），groove（ 3D 凹槽边框。其效果取决于 border-color 的值），ridge（ 3D 凹槽边框。其效果取决于 border-color 的值），
+										    inset（ 3D inset 边框。其效果取决于 border-color 的值），outset（ 3D outset 边框。其效果取决于 border-color 的值），inherit（从父元素继承边框样式）
+									    <br/>5.边框样式在不同浏览器可能会有不同效果。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-tips">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tips</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置提示</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入提示内容，例如：编辑</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性常用于按钮等<br/>
+										2.如果需要其他复杂提示，可以写在mouseover中 <br/>
+									    3.在mouseover中 可以用layer来做提示，例如：layer.tips(html,id ,{tips:[3,"#fff"]})；layer.tips
+									          详细用法请参考：https://layer.layui.com/   
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-posType">
+						<table class="table table-bordered">
+							<thead><th colspan="2">posType</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置定位方式</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入定位方式，例如：relative</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用定位方式有：absolute（生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。），fixed（生成绝对定位的元素，相对于浏览器窗口进行定位。），relative（生成相对定位的元素，相对于其正常位置进行定位。），static（默认值。没有定位），inherit（从父元素继承 position 属性的值）<br/>
+										2.使用absolute，和fixed定位会使元素脱离文档流，即不受其他元素控制，影响。 <br/>
+									    3.使用layout后再拖动元素，或者设置其他定位方式都会导致layout无效。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-top">
+						<table class="table table-bordered">
+							<thead><th colspan="2">top</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置元素距离顶部距离</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：10px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.必须带单位，常用单位有：“px”，“rem”，“%”等<br/>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-bottom">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bottom</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置元素距离底部距离</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：10px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.必须带单位，常用单位有：“px”，“rem”，“%”等<br/>	
+										2.当设置此属性时，top属性会被自动设为auto，否则此属性无法生效。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-left">
+						<table class="table table-bordered">
+							<thead><th colspan="2">left</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置元素距离左侧距离</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：10px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.必须带单位，常用单位有：“px”，“rem”，“%”等<br/>											
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-zIndex">
+						<table class="table table-bordered">
+							<thead><th colspan="2">zIndex</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件层级</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：20</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.数值越大，层级越靠前，默认层级10<br/>		
+										2.当使用selectTable时需要注意设置此属性，否则会导致上面的下拉框被下面挡住。（不仅限于selectTable）
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-textAlign">
+						<table class="table table-bordered">
+							<thead><th colspan="2">textAlign</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置控件内部对齐方式</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：center</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见值有：left（把文本排列到左边），right（把文本排列到右边），center（把文本排列到中间），justify（实现两端对齐文本效果），inherit（从父元素继承 text-align 属性的值）<br/>		
+										2.此属性只对行内元素对齐有效，对块级元素无效，如果需要块级元素垂直居中等，请参考：https://www.cnblogs.com/hutuzhu/p/4450850.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-lineHeight">
+						<table class="table table-bordered">
+							<thead><th colspan="2">lineHeight</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置文本行高</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：20px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.需要带单位，常见单位有：“px”，“%”，“rem”<br/>		
+										2.此属性的值与height的值相同，可以实现文本垂直居中。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-cursor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">cursor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置鼠标形状</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：pointer</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见值有：url（需使用的自定义光标的 URL），default（默认光标（通常是一个箭头）），auto（默认。浏览器设置的光标。）crosshair（光标呈现为十字线。），
+										pointer（光标呈现为指示链接的指针（一只手）），move（此光标指示某对象可被移动。），e-resize（此光标指示矩形框的边缘可被向右（东）移动。），ne-resize（此光标指示矩形框的边缘可被向上及向右移动（北/东）），
+										nw-resize（此光标指示矩形框的边缘可被向上及向左移动（北/西）），n-resize（此光标指示矩形框的边缘可被向上（北）移动），se-resize（此光标指示矩形框的边缘可被向下及向右移动（南/东）），sw-resize（此光标指示矩形框的边缘可被向下及向左移动（南/西）），
+										s-resize（此光标指示矩形框的边缘可被向下移动（北/西）），w-resize（此光标指示矩形框的边缘可被向左移动（西）），text（此光标指示文本。），wait（此光标指示程序正忙（通常是一只表或沙漏）），help（此光标指示可用的帮助（通常是一个问号或一个气球））
+										
+										<br/>		
+									
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-margin">
+						<table class="table table-bordered">
+							<thead><th colspan="2">margin</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置外边距</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：20px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.需要带单位，常见单位有：“px”，“%”，“rem”<br/>		
+										2.如果只有一个值，代表上下左 右，都有对应边距，例如：10px<br/>
+										3.如果有两个值，代表上下， 左右，边距，列如：10px，20px。<br/>
+										4.如果有三个值，代表上，左右，下，边距，列如：10px，20px，30px。<br/>
+										5.如果有四个值，代表上，右，下，左，边距，列如：10px，20px，30px，10px。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-padding">
+						<table class="table table-bordered">
+							<thead><th colspan="2">padding</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置内边距</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：20px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.需要带单位，常见单位有：“px”，“%”，“rem”<br/>		
+										2.如果只有一个值，代表上下左 右，都有对应边距，例如：10px<br/>
+										3.如果有两个值，代表上下， 左右，边距，列如：10px，20px。<br/>
+										4.如果有三个值，代表上，左右，下，边距，列如：10px，20px，30px。<br/>
+										5.如果有四个值，代表上，右，下，左，边距，列如：10px，20px，30px，10px。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-float">
+						<table class="table table-bordered">
+							<thead><th colspan="2">float</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置元素浮动</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：left</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见值：left（元素向左浮动。），right（元素向右浮动），none（默认值。元素不浮动），inherit（从父元素继承 float 属性的值）<br/>		
+										2.使用浮动会脱离文档流，与定位有点像，并且如果有flex属性，则此属性无效<br/>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-order">
+						<table class="table table-bordered">
+							<thead><th colspan="2">order</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置或检索弹性盒模型对象的子元素出现的順序</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：0</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性用于设置tab键时，光标移动顺序<br/>		
+										2.正常使用不会用到<br/>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-flex">
+						<table class="table table-bordered">
+							<thead><th colspan="2">flex</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性用于设置元素如何分配空间</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：0 1 auto</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性三个值分别代表：flex-grow（设置元素的放大比例），flex-shrink（项目的缩小比例），flex-basis（项目的长度），<br/>		
+										2.0 1 auto表示不会改变大小（宽度），1 1 auto表示该元素会占满剩余未分配空间<br/>
+										3.用例：在要做左右布局的时候，左侧分配200px固定空间，右侧1 1 auto就会自动占满剩余空间，而不需要用百分比。
+										4.此属性只有在TFlowlayout中才有效。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-alignSelf">
+						<table class="table table-bordered">
+							<thead><th colspan="2">alignSelf</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性允许单个项目有与其他项目不一样的对齐方式</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：center</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性值有：flex-star（纵轴的起点对齐），flex-end（纵轴的终点对齐），center（纵轴的中点对齐），baseline（项目的第一行文字的基线对齐），stretch（如果项目未设置高度或设为auto，将占满整个容器的高度）<br/>		
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-lg">
+						<table class="table table-bordered">
+							<thead><th colspan="2">lg</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性是TGridlayout专有属性， 大型设备（大台式电脑，1200px 起）启用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：2,10</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性使用boottrap网格系统，数值相加等于12即可。<br/>		
+										2.数值（2,10）表示分配的空间大小，数量。<br/>
+										3.此属性需要提前设置，如果控件里面加入了其他内容，在设置这里，会把里面的内容清空（每次设置会清空html，并重新分配空间）<br/>
+										4.此属性通常与：md，sm，xs，配合使用。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-md">
+						<table class="table table-bordered">
+							<thead><th colspan="2">md</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性是TGridlayout专有属性， 中型设备（台式电脑，992px 起）启用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：2,10</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性使用boottrap网格系统，数值相加等于12即可。<br/>		
+										2.数值（2,10）表示分配的空间大小，数量。<br/>
+										3.此属性需要提前设置，如果控件里面加入了其他内容，在设置这里，会把里面的内容清空（每次设置会清空html，并重新分配空间）<br/>
+										4.此属性通常与：lg，sm，xs，配合使用。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-sm">
+						<table class="table table-bordered">
+							<thead><th colspan="2">sm</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性是TGridlayout专有属性， 小型设备（平板电脑，768px 起）启用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：2,10</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性使用boottrap网格系统，数值相加等于12即可。<br/>		
+										2.数值（2,10）表示分配的空间大小，数量。<br/>
+										3.此属性需要提前设置，如果控件里面加入了其他内容，在设置这里，会把里面的内容清空（每次设置会清空html，并重新分配空间）<br/>
+										4.此属性通常与：lg，md，xs，配合使用。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-xs">
+						<table class="table table-bordered">
+							<thead><th colspan="2">xs</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性是TGridlayout专有属性， 超小设备（手机，小于 768px）启用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：2,10</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性使用boottrap网格系统，数值相加等于12即可。<br/>		
+										2.数值（2,10）表示分配的空间大小，数量。<br/>
+										3.此属性需要提前设置，如果控件里面加入了其他内容，在设置这里，会把里面的内容清空（每次设置会清空html，并重新分配空间）<br/>
+										4.此属性通常与：lg，md，sm，配合使用。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-display">
+						<table class="table table-bordered">
+							<thead><th colspan="2">display</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性规定元素应该生成的框的类型</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：flex</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：none（此元素不会被显示），block（此元素将显示为块级元素），inline（此元素会被显示为内联元素），inline-block（行内块元素），flex（弹性布局）<br/>		
+										2.该属性通常使用控件默认的。无需做修改<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>								
+					<div id="help-flexDirection">
+						<table class="table table-bordered">
+							<thead><th colspan="2">flexDirection</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TFlowlayout专用属性，设置项目的排列方向</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：row</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：row（主轴为水平方向，起点在左端），row-reverse（主轴为水平方向，起点在右端），column（主轴为垂直方向，起点在上沿），column-reverse（主轴为垂直方向，起点在下沿）<br/>		
+										2.此属性用于控制其内部元素的排列方式<span>（重要）</span><br/>
+										3.详细内容请参考：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-flexWrap">
+						<table class="table table-bordered">
+							<thead><th colspan="2">flexWrap</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TFlowlayout专用属性，设置项目是否换行排列</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：nowrap</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：nowrap（不换行），wrap（换行，第一行在上方），wrap-reverse（换行，第一行在下方）<br/>		
+										2.当为nowrap时，所有拖拽到这里面的元素会挤在一排，自动压缩。当为wrap时，拖拽元素大小不会自动变化，当一行装不下时会换行<span>（重要）</span><br/>
+										3.详细内容请参考：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-justifyContent">
+						<table class="table table-bordered">
+							<thead><th colspan="2">justifyContent</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TFlowlayout专用属性，此属性定义了项目在主轴上的对齐方式</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：center</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：flex-start（左对齐），flex-end（右对齐），center（居中），space-between（两端对齐，项目之间的间隔都相等），space-around（每个项目两侧的间隔相等）<br/>		
+										2.垂直居中：justifyContent：center，alignItems：center<span>（重要）</span><br/>
+										3.详细内容请参考：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-alignItems">
+						<table class="table table-bordered">
+							<thead><th colspan="2">alignItems</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TFlowlayout专用属性，此属性定义项目在交叉轴上如何对齐</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：center</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：flex-start（交叉轴的起点对齐），flex-end（交叉轴的终点对齐），center（交叉轴的中点对齐），space-between（项目的第一行文字的基线对齐），stretch（如果项目未设置高度或设为auto，将占满整个容器的高度）<br/>		
+										2.垂直居中：justifyContent：center，alignItems：center<span>（重要）</span><br/>
+										3.详细内容请参考：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-alignContent">
+						<table class="table table-bordered">
+							<thead><th colspan="2">alignContent</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TFlowlayout专用属性，此属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：center</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：flex-start（交叉轴的起点对齐），flex-end（交叉轴的终点对齐），center（交叉轴的中点对齐），space-between（与交叉轴两端对齐，轴线之间的间隔平均分布），space-around（每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍），stretch（轴线占满整个交叉轴）<br/>												
+										2.详细内容请参考：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-overflow">
+						<table class="table table-bordered">
+							<thead><th colspan="2">overflow</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性设置容器是否出现滚动条</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：scroll</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.如果只要横向滚动条，输入x，scroll。如果只要纵向滚动条，输入：y，scroll。如果横纵都要，则直接输入：scroll<br/>												
+										2.常用属性有：visible（内容不会被修剪，会呈现在元素框之外），hidden（内容会被修剪，并且其余内容是不可见的），scroll（内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容），auto（如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容），inherit（规定应该从父元素继承 overflow 属性的值）
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-layoutRows">
+						<table class="table table-bordered">
+							<thead><th colspan="2">layoutRows</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性设置table行数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：4</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.直接输入行数<br/>												
+										2.新拖拽出来的TableLayout需要重新设置行列才能使用。<br/>
+										3.TableLayout行列要提前设好，里面有内容后再改，会导致内容消失。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-layoutCols">
+						<table class="table table-bordered">
+							<thead><th colspan="2">layoutCols</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性设置table列数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：4</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.直接输入行数<br/>												
+										2.新拖拽出来的TableLayout需要重新设置行列才能使用。并且要先行后列<br/>
+										3.TableLayout行列要提前设好，里面有内容后再改，会导致内容消失。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-colWidth">
+						<table class="table table-bordered">
+							<thead><th colspan="2">colWidth</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性可设置每一列宽度</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：divide</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.如果是要平均分列宽则输入：divide。如果要单独设置每一列，则输入：100px，200px，300px等。<br/>												
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-colHeight">
+						<table class="table table-bordered">
+							<thead><th colspan="2">colHeight</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性可设置每一列高度</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：30px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入高度值<br/>												
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-rowcolor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">rowcolor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性可设置每一行背景颜色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：0，#dddddd；2，#dddddd（第一行，第三行设置背景色）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入值<br/>												
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-rowcolor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">rowcolor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性可设置每一行背景颜色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：0，#dddddd；2，#dddddd（第一行，第三行设置背景色）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入值<br/>												
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-addLayoutRows">
+						<table class="table table-bordered">
+							<thead><th colspan="2">addLayoutRows</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTableLayout专用，此属性可增加行</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：2</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用于动态增加行<br/>												
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>								
+					<div id="help-imgName">
+						<table class="table table-bordered">
+							<thead><th colspan="2">imgName</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TLabel专用，此属性可添加字体图标</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入字体图标名，例如：glyphicon glyphicon-plus</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.如果只有图标没有文字，需要在text属性处打一个空格<br/>												
+										2.支持bootstrap字体图标，和部分阿里矢量图标库中图标（阿里图标库中图标在bootstrap3.0/ali-fonts/demo_fontclass.html中查看）<br/>
+										3.要增加图标，目前只支持阿里图标库中图标，需要去阿里图标库中下载完整图标文件，直接覆盖放入ali-fonts中。阿里图标库地址：https://www.iconfont.cn/
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-bgImgUrl">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bgImgUrl</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性可添加背景图片</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入字体图片名，例如：abc.png</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.图片会自动添加服务器地址，组成绝对路径<br/>												
+										2.如果添加后图片没出来，可能是服务器上没有此图片，可以f12看下图片路径是否正确等<br/>
+										3.TButton，TPanel，中会用到
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-bgRepeat">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bgRepeat</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>Tpanel专用，此属性定义了图像的平铺模式</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：no-repeat</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见值有：repeat（背景图像将在垂直方向和水平方向重复），repeat-x（背景图像将在水平方向重复），repeat-y（背景图像将在垂直方向重复），no-repeat（背景图像将仅显示一次），inherit（从父元素继承 background-repeat 属性的设置）<br/>												
+										2.通常需要设置为：no-repeat<br/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-bgSize">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bgSize</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>Tpanel专用，此属性定义了图像的大小</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：100%</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见值有：cover（把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。超出部分会隐藏），contain（把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。），length（设置背景图像的高度和宽度。第一个值设置宽度，第二个值设置高度。例如：10px 150px），percentage（以父元素的百分比来设置背景图像的宽度和高度。第一个值设置宽度，第二个值设置高度。如果只设置一个值，则第二个值会被设置为 "auto"。）<br/>												
+										2.通常需要设置为：cover or contain or 100% <br/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-bgPosition">
+						<table class="table table-bordered">
+							<thead><th colspan="2">bgPosition</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>Tpanel专用，此属性设置背景图像的起始位置</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：10%，10%</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.两个值代表：左，上。<br/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-buttonClass">
+						<table class="table table-bordered">
+							<thead><th colspan="2">buttonClass</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TButton专用，此属性设置button类名</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：btn btn-warning</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入bootstrap中按钮的类名<br/>
+										2.bootstrap地址：https://www.runoob.com/bootstrap/bootstrap-buttons.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-disabled">
+						<table class="table table-bordered">
+							<thead><th colspan="2">disabled</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性设置输入框是否可用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：禁用，fals：启用<br/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-format">
+						<table class="table table-bordered">
+							<thead><th colspan="2">format</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属性设置输入正则表达式，或者日期格式等</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>如果是正常输入框，这里输入正则表达式，例如：/^[0-9]*$/。如果是日期，这里则是日期格式，例如：yyyy-MM-dd</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.TTextfield控件这里会有一些预定义的正则表达式可以直接选择使用，也可以自己写。<br/>
+										2.TDatefield控件这里是日期格式，常见格式有：yyyy-MM-dd HH:mm:ss	，yyyy年MM月dd日 HH时mm分ss秒，dd/MM/yyyy等。<br/>
+										3.作为日期格式更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-dateType">
+						<table class="table table-bordered">
+							<thead><th colspan="2">dateType</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属性设置日期类型</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：datetime</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见日期类型有：year（年选择器，只提供年列表选择），month（年月选择器，只提供年、月选择），date（日期选择器，可选择：年、月、日），time（时间选择器，只提供时、分、秒选择），datetime（日期时间选择器，可选择：年、月、日、时、分、秒）<br/>
+										3.作为日期格式更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-range">
+						<table class="table table-bordered">
+							<thead><th colspan="2">range</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属开启左右面板范围选择</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：true </td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：将默认采用 “ - ” 分割，或输入自定义分隔符，例如：'~'<br/>
+										3.更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-min">
+						<table class="table table-bordered">
+							<thead><th colspan="2">min</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属设置最小范围内的日期时间值</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入： '1900-1-1' </td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用数值：字符类型（'1900-1-1'）年月日必须用 -（中划线）分割、时分秒必须用 :（半角冒号）号分割
+										 		    整数类型	(-7)且数字＜86400000,数字代表天数，如：min: -7，即代表最小日期在7天前，正数代表若干天后
+										 		    且数字 ≥ 86400000，则数字代表时间戳，如：max: 4073558400000，即代表最大日期在：公元3000年1月1日  
+										<br/>
+										2.更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-max">
+						<table class="table table-bordered">
+							<thead><th colspan="2">max</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属设置最大范围内的日期时间值</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入： '2099-12-31' </td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用数值：字符类型（'2099-12-31'）年月日必须用 -（中划线）分割、时分秒必须用 :（半角冒号）号分割
+										 		    整数类型	(-7)且数字＜86400000,数字代表天数，如：min: -7，即代表最小日期在7天前，正数代表若干天后
+										 		    且数字 ≥ 86400000，则数字代表时间戳，如：max: 4073558400000，即代表最大日期在：公元3000年1月1日  
+										<br/>
+										2.更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>			
+					<div id="help-lang">
+						<table class="table table-bordered">
+							<thead><th colspan="2">lang</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属设置时间语言</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入： en </td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：cn（中文，默认），en（英文）
+										2.更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-theme">
+						<table class="table table-bordered">
+							<thead><th colspan="2">theme</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TDatefield专用，此属设置时间主题背景色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入： molv </td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常用值：default（默认简约），molv（墨绿背景）、#颜色值（自定义颜色背景）、grid（格子主题），xxx（自定义主题，控件将会多出一个 class="laydate-theme-xxx" 的CSS类）<br/>
+										2.更详细内容请参考：https://www.layui.com/doc/modules/laydate.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-checked">
+						<table class="table table-bordered">
+							<thead><th colspan="2">checked</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TCheckBox专用，此属设置复选框是否选中</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>选择或取消选择</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-item">
+						<table class="table table-bordered">
+							<thead><th colspan="2">item</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TRadioButton专用，此属设置单选个数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：radio1,radio2</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.单选框名称用“，”分隔
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-options">
+						<table class="table table-bordered">
+							<thead><th colspan="2">options</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TSelect专用，此属设置下拉项</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：项目1，项目2</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入格式为：项目1，项目2直接放入下拉列表<br/>
+										2.输入格式为：code1，项目1；code2，项目2（有分号分隔）。每个分号是一个项，每个项里面第一个（code1）代表value中的值（要获取的参数），第二个（项目1）代表下拉中显示出来的值。中间用逗号分隔。<br/>
+										3.输入格式为：json对象，用于动态数据展示。需要传参（val, name, code）。其中，val：json数据，name：用于显示的字段名，code：用于传参的字段名
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-isSearch">
+						<table class="table table-bordered">
+							<thead><th colspan="2">isSearch</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置是否启用搜索功能</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：启用搜索。false：关闭搜索<br/>
+										2.每次改变isSearch的true或false状态都需要先保存，然后刷新页面才会生效。不会立即生效。
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-tableData">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tableData</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TSelectTable专用，此属设置下拉列表数据</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：json数据</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.支持数据格式：json（ArryList），二维数组。<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-head">
+						<table class="table table-bordered">
+							<thead><th colspan="2">head</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置表格标题</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：区域,,,regionCode;门级别,,,admType;</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.参数详解：每个标题有四个参数，分别为：name,width,type,code<br/>
+										2.name:标题名称，当type为checkbox时，如果name存在则显示name，如果不存在则是一个复选框，提供全选，反选功能。<br/>
+										3.width：标题宽度<br/>
+										4.type：类型，（1）true：隐藏此列。（2）checkbox：复选框。 date：日期。select：下拉框，boolean：只有true和false的下拉框。button：["增加","编辑","删除"]，自定义按钮。<br/>
+										5.目前button类型只支持增删改功能，设置好后保存，刷新页面，在event中可以看到写增删改代码的地方。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-tableWidth">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tableWidth</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TSelectTable专用，此属设置下拉框宽度</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：300px</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.支持单位：“px”，“%”，“rem”<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-pageIsHide">
+						<table class="table table-bordered">
+							<thead><th colspan="2">pageIsHide</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置表格是否分页</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：不分页。false：分页<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>				
+					<div id="help-pageNum">
+						<table class="table table-bordered">
+							<thead><th colspan="2">pageNum</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置表格每页显示条数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：不分页。false：分页<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>			
+					<div id="help-clickVal">
+						<table class="table table-bordered">
+							<thead><th colspan="2">clickVal</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TSelectTable专用，此属设置点击下拉表格获取哪列数据</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：0,1（表示当前行第一列的数据作为参数，第二列的数据显示在输入框 ）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1. 需要注意隐藏的列。<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-rows">
+						<table class="table table-bordered">
+							<thead><th colspan="2">rows</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格行数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值：4</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1. 注意先行后列（先设置行数，再设置列数）<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-cols">
+						<table class="table table-bordered">
+							<thead><th colspan="2">cols</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格列数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值：4</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1. 注意先行后列（先设置行数，再设置列数）<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-tbBgColor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tbBgColor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格背景色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>选择颜色</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-tbHeadColor">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tbHeadColor</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格标题背景颜色</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>选择颜色</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-tbBorder">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tbBorder</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格边框属性</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：1px solid #dddddd</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.此属性会改变表格所有边框<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-tableClass">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tableClass</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTable专用，此属设置表格类名</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值，例如：table table-striped</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.这里使用bootstrap的表格类，也可以是自定义的。<br/>
+										2.这里的类名会直接写在 table 标签上
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>		
+					<div id="help-data">
+						<table class="table table-bordered">
+							<thead><th colspan="2">data</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置表格数据</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：json数据</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.支持数据格式：json（ArryList），二维数组。<br/>
+										2.如果是ztree中数据，需要是树结构数据，例如：<br/>（1）var nodes = [{name: "父节点1", children: [{name: "子节点1"},{name: "子节点2"}]}]<br/>
+										（2）var nodes = [{id:1, pId:0, name: "父节点1"},{id:11, pId:1, name: "子节点1"},{id:12, pId:1, name: "子节点2"}]
+										3.数据中的name是最终tree会展示出来的节点名称。<span>（重要）</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>			
+					<div id="help-menuList">
+						<table class="table table-bordered">
+							<thead><th colspan="2">menuList</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>此属设置下拉菜单</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入：菜单1，菜单2</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入下拉菜单名称，逗号分隔<br/>
+										2.输入完成后保存，刷新页面，右侧event里面会出现菜单的事件编辑按钮，点击按钮编辑对应菜单事件。
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>								
+					<div id="help-title">
+						<table class="table table-bordered">
+							<thead><th colspan="2">title,skin,area,offset,closeBtn,shade,anim,maxmin,fixed,maxWidth,maxHeight</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>设置模态框相关参数</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.参数详细介绍请参考：https://www.layui.com/doc/modules/layer.html<br/>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>								
+					<div id="help-tabType">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tabType</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置选项卡风格</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：layui-tab</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.常见css属性有：layui-tab（默认选项卡），layui-tab layui-tab-brief（简洁风格），layui-tab layui-tab-card（卡片风格），<br/>
+										2.如有疑问请参考：https://www.layui.com/doc/element/tab.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>			
+					<div id="help-allowClose">
+						<table class="table table-bordered">
+							<thead><th colspan="2">allowClose</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置选项卡是否显示关闭按钮</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：显示关闭按钮，false：隐藏关闭按钮<br/>
+										2.如有疑问请参考：https://www.layui.com/doc/element/tab.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-tabTitle">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tabTitle</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置选项卡标题</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：项目1；项目2</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.输入标题名称，多个标题分号分隔<br/>										  
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+					<div id="help-addParentNode">
+						<table class="table table-bordered">
+							<thead><th colspan="2">addParentNode</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置添加父节点</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：1（新加一个父节点）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.页面上要有选中的节点<br/>	
+										2.输入的数值是几，就会在选中节点下添加几个父节点
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					<div id="help-addLeafNode">
+						<table class="table table-bordered">
+							<thead><th colspan="2">addLeafNode</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置添加子节点</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：1（新加一个子节点）</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.页面上要有选中的节点<br/>	
+										2.输入的数值是几，就会在选中节点下添加几个子节点
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>						
+					<div id="help-setting">
+						<table class="table table-bordered">
+							<thead><th colspan="2">setting</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性设置ztree的配置项</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如{view: {}，data: {}}</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.自定义设置这个属性，需要设置data才会生效<br/>	
+										2.setting常规用法请参考：http://www.treejs.cn/v3/api.php
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="help-delNode">
+						<table class="table table-bordered">
+							<thead><th colspan="2">delNode</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TTabbedPane专用，此属性用于删除节点</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值,例如：true</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.true：删除节点<br/>	
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>					
+					<div id="help-tooltip">
+						<table class="table table-bordered">
+							<thead><th colspan="2">tooltip,title,grid,legendData,xdata,ydata,sries</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TEchartLine专用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.各个属性用法请参考：https://echarts.baidu.com/examples/editor.html?c=line-log<br/>	
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>								
+					<div id="help-treeData">
+						<table class="table table-bordered">
+							<thead><th colspan="2">treeData,levels,expandIcon,collapseIcon,enableLinks,checkedIcon,emptyIcon,highResult,highSelected,onhoverColor,nodeIcon,selectedIcon,seltedBgColor,showBorder,showCheckbox,showIcon,showTags</th></thead>
+							<tbody>
+								<tr>
+									<td>说明</td>
+									<td>TMenutree专用</td>
+
+								</tr>
+								<tr class="active">
+									<td>用例</td>
+									<td>输入值</td>
+								</tr>
+								<tr>
+									<td>备注</td>
+									<td>
+										1.treedata数据结构： {text:"Parent 1",nodes: [{text:"Grandchild 1"}]}<br/>	
+										2.数据中text是tree中显示出来的文本，nodes里面是子节点（名称不可以改变）<br/>	
+										3.详细参数说明请参考：https://www.cnblogs.com/tangzeqi/p/8021637.html
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>							
+	
+			</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(".help-left li").click(function(){
+			let name = $(this).text();
+			nowPosition(name,true)
+		});
+		
+		nowPosition();
+		function nowPosition(name,type){
+			if(!type&&!name){
+				name = location.href.substr(location.href.indexOf("?")+1);
+				console.log(name)
+			}
+			let id;
+			if(name=="treeData"||name=="levels"||name=="expandIcon"||name=="collapseIcon"||name=="enableLinks"||name=="checkedIcon"||name=="emptyIcon"||name=="highResult"||name=="highSelected"||name=="onhoverColor"||name=="nodeIcon"||name=="selectedIcon"||name=="seltedBgColor"||name=="showBorder"||name=="showCheckbox"||name=="showIcon"||name=="showTags"){
+				id = "treeData";
+			}else if(name=="tooltip"||name=="grid"||name=="legendData"||name=="xdata"||name=="ydata"||name=="sries"){
+				id = "tooltip";
+			}else if(name=="title"||name=="skin"||name=="area"||name=="offset"||name=="closeBtn"||name=="shade"||name=="anim"||name=="maxmin"||name=="fixed"||name=="maxWidth"||name=="maxHeight"){
+				id = "title";
+			}else{
+				id = name;
+			}
+			location.href ="#help-"+ id;
+			
+		}
+	</script>
+</html>

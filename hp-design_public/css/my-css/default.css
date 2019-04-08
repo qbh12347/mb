@@ -1,0 +1,65 @@
+/******************ttable相关样式设置****************/
+.ttable table tbody tr td input{margin: 0;padding: 0;border: none;display: inline-block;width: 100%;text-align: center;height: 100%;}
+.ttable table tbody tr td input[type="checkbox"]{height: 13px;}
+.ttable tbody tr select{width: 100%;height: 100%;border: none;}
+.ttable table tbody tr td{height: 35px;padding: 0;text-align: center;vertical-align: middle;}
+.ttable table thead tr th{text-align: center;}
+.ttable table{margin-bottom: 0;}
+
+
+.c-drg div[data-name='TTable'] table tbody tr td input{margin: 0;padding: 0;border: none;display: inline-block;width: 100%;text-align: center;height: 100%;}
+.c-drg div[data-name='TTable'] table tbody tr td input[type="checkbox"]{height: 13px;}
+.c-drg div[data-name='TTable'] tbody tr select{width: 100%;height: 100%;border: none;}
+.c-drg div[data-name='TTable'] table tbody tr td{height: 35px;padding: 0;text-align: center;vertical-align: middle;}
+.c-drg div[data-name='TTable'] table thead tr th{text-align: center;}
+.c-drg div[data-name='TTable'] table{margin-bottom: 0;}
+/*表格分页样式*/
+.ttable nav .pagination{margin:5px 0}
+.ttable nav{text-align: center;min-width: 180px;}
+.ttable{border: 1px solid #ddd;overflow-x: hidden;}
+.ttable nav .pagination>li>a{border: none;padding: 6px;}
+.ttable nav .pagination>li>a:hover{background-color: white;}
+
+.c-drg div[data-name='TTable'] nav .pagination{margin:5px 0}
+.c-drg div[data-name='TTable'] nav{text-align: center;min-width: 180px;}
+.c-drg div[data-name='TTable']{border: 1px solid #ddd;overflow-x: hidden;}
+.c-drg div[data-name='TTable'] nav .pagination>li>a{border: none;padding: 6px;}
+.c-drg div[data-name='TTable'] nav .pagination>li>a:hover{background-color: white;}
+/******************tbutton相关样式设置****************/
+.tbutton{width: 100%;height: 100%;}
+
+.c-drg div[data-name='TButton'] button{width: 100%;height: 100%;}
+/******************checkbox相关样式设置****************/
+.tcheckbox{margin: 0;}
+
+.c-drg div[data-name='TCheckBox'] input{margin: 0;}
+/******************select相关样式设置****************/
+.tselect{width: 100%;height: 100%;}
+
+.c-drg div[data-name='TSelect'] select{width: 100%;height: 100%;}
+/******************radio相关样式设置****************/
+.tradiobutton{width: auto;}
+
+.c-drg div[data-name='RadioButton'] input{width: 100%;height: 100%;}
+/******************textarea相关样式设置****************/
+.ttextarea{width: 100%;resize: none;height: 100%;}
+
+.c-drg div[data-name='TTextarea'] textarea{width: 100%;resize: none;height: 100%;}
+/******************ttabbedpane相关样式设置****************/
+.ttabbedpane .tabclose{ margin-left: 10px;font-size: 12px;}
+/******************ttablelayouttest相关样式设置****************/
+.ttablelayouttest td{position: relative;height: 26px;padding: 0;}
+
+.c-drg div[data-name='TTableLayout'] td{position: relative;height: 26px;padding: 0;}
+/******************SelectTable相关样式设置****************/
+.tselecttable nav{margin: 0;padding: 0;text-align: center;}
+.tselecttable nav ul{margin: 0;padding: 0;}
+.tselecttable thead th{text-align: center;}
+/*其他页面样式控制*/
+#runTime .add, #runTime .edit, #runTime .del{width: auto;height: 30px;float: left;padding: 2px 6px;margin-left: 5px;}
+
+
+
+
+
+

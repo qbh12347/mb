@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap3.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/my-css/index.css" />
+		<link rel="stylesheet" href="layer/mobile/need/layer.css" />
+		<link rel="stylesheet" href="colorpick/css/colpick.css" />
+		<link rel="stylesheet" href="datetimepicker/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="zTree/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="css/my-css/quickQuery.css" />
+		<link rel="stylesheet" href="css/my-css/jquery.json-viewer.css" />
+		<!--2018.8.7新增table-tree-view-->
+		<link rel="stylesheet" href="bootstrap-table/css/bootstrap-table.min.css" />
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js"></script>
+		<style type='text/css'>			
+			.flex {
+				display: flex;
+			}
+			
+			.flex-row {
+				/*flex-direction: column;*/
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			.flex-column {
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			
+			/*body {
+				overflow: auto;
+				background: #fff;
+			}*/
+			
+			/*.title {
+				width: 920px;
+				padding: 30px;
+				align-items: flex-end;
+			}
+			
+			.title h1 {
+				padding-bottom: 20px;
+				font-size: 38px;
+				color: #ffffff;
+				text-shadow: 0 1px 3px #222222;
+			}
+			
+			.title p {
+				font-size: 18px;
+				color: #f5f5f5;
+				text-shadow: 0 1px 3px #565656;
+			}*/
+			
+			.wrap {
+				width: 100%;
+				height: 100%;
+				display: none;
+			}
+			
+			.wrap .reference {
+				position: relative;
+				/*padding: 10px;*/
+				background-color: rgba(255, 255, 255, 0);
+				/* border-radius: 10px; */
+				box-shadow: 0 0 20px #a1a19f;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.wrap .reference img.face {
+				display: block;
+				width: 320px;
+				height: auto;
+				border-radius: 10px;
+			}
+			
+			.wrap .reference img.toggle {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				width: 50px;
+				height: 50px;
+			}
+			
+			.wrap .scan video {
+				background-color: rgba(0, 0, 0, .8);
+				/* border-radius: 10px; */
+				width: 100%;
+				height: 100%;
+			}
+			
+			.wrap .control {
+				justify-content: space-around;
+				height: 456px;
+				padding: 0 20px;
+			}
+			
+			.wrap .control p {
+				width: 160px;
+				height: 60px;
+				background-color: #f9f9f9;
+				text-align: center;
+				line-height: 60px;
+				color: #ffffff;
+				font-size: 24px;
+				border-radius: 8px;
+				cursor: pointer;
+				box-shadow: -8px -8px 150px -8px #b2b3b5 inset, 0 0 5px #222222;
+				text-shadow: 0 0 1px #222222;
+				transition: .5s;
+			}
+			
+			.wrap .control p:hover {
+				box-shadow: -8px -8px 150px -8px #50c4f1 inset, 0 0 5px #ffffff;
+			}
+			
+			.wrap .scan {
+				position: relative;
+				overflow: hidden;
+			}
+			.strainer span {
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				border: 2px solid #1fa2ff;
+			}
+			
+			.strainer span:nth-child( 1) {
+				left: 0;
+				top: 0;
+				border-width: 2px 0 0 2px;
+			}
+			
+			.strainer span:nth-child( 2) {
+				right: 0;
+				top: 0;
+				border-width: 2px 2px 0 0;
+			}
+			
+			.strainer span:nth-child( 3) {
+				right: 0;
+				bottom: 0;
+				border-width: 0 2px 2px 0;
+			}
+			
+			.strainer span:nth-child( 4) {
+				left: 0;
+				bottom: 0;
+				border-width: 0 0 2px 2px;
+			} 
+
+			
+			.wrap .scan .strainer {
+				position: absolute;
+				top: 0;
+				width: 200px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				z-index: 999;
+				height: 200px;
+			}
+
+			.scan {
+				position: absolute;
+			}
+			
+			.strainer:after {
+				-webkit-animation: rotateAnim linear 3.68s infinite;
+				animation: rotateAnim linear 3.68s infinite;
+				content: '';
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: #d8be26;
+			}
+			
+			@keyframes rotateAnim {
+				from {
+					top: 0;
+				}
+				to {
+					top: 100%;
+				}
+			}
+			
+			@-webkit-keyframes rotateAnim {
+				from {
+					top: 0;
+				}
+				to {
+					top: 100%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="runTime" class="layui-layer-wrap" style="display: block;">
+			<div name="TForm_1" data-name="TForm" id="TForm_zryvekemmm" class="la-drag" style="width: 100%; height: 100%; position: relative; left: 0px; top: 0px;">
+				<div name="TFl_2" data-name="TFlowLayout" id="TFlowLayout_c9xiuh6thq9" class="la-drag" style="width: 100%; height: 10%; position: fixed; left: 0px; top: auto; bottom: 5px; display: flex;">
+					<div name="TFl_3" data-name="TFlowLayout" id="TFlowLayout_oq2ywcb3gie" class="la-drag" style="width: 20%; height: 100%; position: relative; left: 0px; top: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div name="TPa3_1" data-name="TPanel" id="TPanel_gah7qir56o" class="la-drag" style="width: 30px; height: 30px; position: relative; left: 0px; top: 0px; background-image: url(&quot;img/bt1.png&quot;); background-size: 100%;"></div>
+						<div name="TPa3_2" data-name="TLabel" id="TLabel_000moicvmog81q" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; font-size: 1.2rem;">待执行</label></div>
+					</div>
+					<div name="TFl_4" data-name="TFlowLayout" id="TFlowLayout_lmymmbrkn9k" class="la-drag" style="width: 20%; height: 100%; position: relative; left: 0px; top: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div name="TPa4_1" data-name="TPanel" id="TPanel_g92hdevajj" class="la-drag" style="width: 30px; height: 30px; position: relative; left: 0px; top: 0px; background-image: url(&quot;img/bt2.png&quot;); background-size: 100%;"></div>
+						<div name="TPa4_2" data-name="TLabel" id="TLabel_o9j1tpjx56" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; font-size: 1.2rem;">患者</label></div>
+					</div>
+					<div name="TFl_5" data-name="TFlowLayout" id="TFlowLayout_rme2lksxg9g" class="la-drag" style="width: 20%; height: auto; position: relative; left: 0px; top: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div name="TPa5_1" data-name="TPanel" id="TPanel_rk617tlq56" class="la-drag" style="width: 30px; height: 30px; position: relative; left: 0px; top: 0px; background-image: url(&quot;img/bt3.png&quot;); background-size: 100%;"></div>
+						<div name="TPa5_2" data-name="TLabel" id="TLabel_skd1be98aa" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; font-size: 1.2rem;">扫描</label></div>
+					</div>
+					<div name="TFl_6" data-name="TFlowLayout" id="TFlowLayout_1vd51kh2pb9" class="la-drag" style="width: 20%; height: 100%; position: relative; left: 0px; top: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div name="TPa6_1" data-name="TPanel" id="TPanel_qkiblce4ytl" class="la-drag" style="width: 30px; height: 30px; position: relative; left: 0px; top: 0px; background-image: url(&quot;img/bt4.png&quot;); background-size: 100%;"></div>
+						<div name="TPa6_2" data-name="TLabel" id="TLabel_lj40kwjjtbl" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; font-size: 1.2rem;">巡房</label></div>
+					</div>
+					<div name="TFl_7" data-name="TFlowLayout" id="TFlowLayout_0usu2mbw0s4" class="la-drag" style="width: 20%; height: 100%; position: relative; left: 0px; top: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div name="TPa7_1" data-name="TPanel" id="TPanel_wv5lgmwm0t" class="la-drag" style="width: 30px; height: 30px; position: relative; left: 0px; top: 0px; background-image: url(&quot;img/bt5.png&quot;); background-size: 100%;"></div>
+						<div name="TPa7_2" data-name="TLabel" id="TLabel_gv2hs43av2" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; font-size: 1.2rem;">更多</label></div>
+					</div>
+				</div>
+				<div name="ct_con" data-name="TPanel" id="TPanel_ifw4ww0hpdm" class="la-drag" style="width: 100%; height: 90%; position: absolute; left: 0px; top: 0px;">
+					<div name="TForm_1" data-name="TForm" id="TForm_h1978tlj35w" class="la-drag" style="width: 100%; height: 100%; position: relative; left: 0px; top: 0px;">
+						<div name="TFlowLayout_15" data-name="TFlowLayout" id="TFlowLayout_ytskwbaje" class="la-drag" style="width: 100%; height: auto; position: absolute; left: 0px; top: 44px; display: flex; background-color: rgb(204, 204, 204);">
+							<div name="TLabel_16" data-name="TLabel" id="TLabel_7b2ue5qy4oi" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px; margin: 0px 0px 0px 10px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">1</label></div>
+							<div name="TLabel_17" data-name="TLabel" id="TLabel_u527eivstpo" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">病室</label></div>
+							<div name="TLabel_18" data-name="TLabel" id="TLabel_za2g24yw3y" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">3</label></div>
+							<div name="TLabel_19" data-name="TLabel" id="TLabel_oaw4yepipqm" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">床</label></div>
+							<div name="TLabel_20" data-name="TLabel" id="TLabel_5nrmfl1ebim" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px; margin: 0px 0px 0px 10px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">邓建国</label></div>
+							<div name="TLabel_21" data-name="TLabel" id="TLabel_r7v5ao68uml" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px; margin: 0px 0px 0px 10px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">男</label></div>
+							<div name="TLabel_22" data-name="TLabel" id="TLabel_uxshg887ib" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px; margin: 0px 0px 0px 10px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">特级护理</label></div>
+							<div name="TLabel_23" data-name="TLabel" id="TLabel_lvfb6svyysq" class="la-drag" style="width: auto; height: 26px; position: relative; left: 0px; top: 0px; margin: 0px 0px 0px 10px;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199); font-size: 1.2rem;">000000124</label></div>
+						</div>
+						<div name="TFlowLayout_2" data-name="TFlowLayout" id="TFlowLayout_m4bxf391qv" class="la-drag" style="width: 100%; height: 40px; position: absolute; left: 0px; top: 0px; display: flex; background-color: rgb(204, 204, 204);">
+							<div name="TPanel_3" data-name="TPanel" id="TPanel_i5obmgkfk8s" class="la-drag" style="width: 10%; height: auto; position: relative; left: 0px; top: 0px;">
+								<div name="TLabel_6" data-name="TLabel" id="TLabel_gydr7la17h" class="la-drag" style="width: 100%; height: 100%; line-height: 40px; position: absolute; left: 0px; top: 0px;"><i class="glyphicon glyphicon-chevron-left" style=""></i><label style="margin-left:5px"></label></div>
+							</div>
+							<div name="TPanel_4" data-name="TPanel" id="TPanel_sjvkkb9mege" class="la-drag" style="width: 1092.81px; height: auto; position: relative; left: 0px; top: 0px; flex: 1 1 auto;">
+								<div name="TLabel_7" data-name="TLabel" id="TLabel_dlzb2aeafiu" class="la-drag" style="width: 100%; height: 100%; line-height: 40px; position: absolute; left: 0px; top: 0px; text-align: center;"><i class=""></i><label style="margin-left: 5px; color: rgb(50, 137, 199);">挂瓶核对</label></div>
+							</div>
+							<div name="TPanel_5" data-name="TPanel" id="TPanel_h8thl7fm2j6" class="la-drag" style="width: 50%; height: auto; position: relative; left: 0px; top: 0px; background-color: rgb(204, 204, 204);">
+								<div name="TLabel_14" data-name="TLabel" id="TLabel_zf6ygjncs1" class="la-drag" style="width: 100%; height: 100%; line-height: 40px; position: absolute; left: 0px; top: 0px; text-align: center;"><i class=""></i><label style="margin-left:5px">扫描</label></div>
+							</div>
+						</div>
+						<div name="TFlowLayout_25" data-name="TFlowLayout" id="TFlowLayout_wrjsjyxa08l" class="la-drag" style="width: 100%; height: auto; position: absolute; left: 0px; top: 72px; flex-wrap: wrap; display: flex; justify-content: center;">
+							<div name="TTa_26" data-name="TTable" class="dfborder la-drag table-responsive" id="TTable_08ip71llkpfp" style="width: 100%; height: 300px; position: relative; left: 0px; top: 0px;">
+								<table class="table" id="TTable_08ip71llkpfp0">
+									<thead>
+										<tr>
+											<th>日期</th>
+											<th>iv.drip</th>
+											<th>BID</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+							<div name="TTa_28" data-name="TButton" id="TButton_qemogs58kl" class="la-drag" style="width: 50%; height: 35px; position: relative; left: 0px; top: 0px;"><button class="btn btn-default"><span>执行</span></button></div>
+						</div>
+						<script>
+							$(function() {
+
+								TForm_1 = new TFormControl('', '#runTime #TForm_zryvekemmm', 'TForm_1');
+								TFl_2 = new TFlowLayoutControl('', '#runTime #TFlowLayout_c9xiuh6thq9', 'TFl_2');
+								TFl_3 = new TFlowLayoutControl('', '#runTime #TFlowLayout_oq2ywcb3gie', 'TFl_3');
+								TPa3_1 = new TPanelControl('', '#runTime #TPanel_gah7qir56o', 'TPa3_1');
+								TPa3_2 = new TLabelControl('', '#runTime #TLabel_000moicvmog81q', 'TPa3_2', 'label');
+								TFl_4 = new TFlowLayoutControl('', '#runTime #TFlowLayout_lmymmbrkn9k', 'TFl_4');
+								TPa4_1 = new TPanelControl('', '#runTime #TPanel_g92hdevajj', 'TPa4_1');
+								TPa4_2 = new TLabelControl('', '#runTime #TLabel_o9j1tpjx56', 'TPa4_2', 'label');
+								TFl_5 = new TFlowLayoutControl('', '#runTime #TFlowLayout_rme2lksxg9g', 'TFl_5');
+								TPa5_1 = new TPanelControl('', '#runTime #TPanel_rk617tlq56', 'TPa5_1');
+								TPa5_2 = new TLabelControl('', '#runTime #TLabel_skd1be98aa', 'TPa5_2', 'label');
+								TFl_6 = new TFlowLayoutControl('', '#runTime #TFlowLayout_1vd51kh2pb9', 'TFl_6');
+								TPa6_1 = new TPanelControl('', '#runTime #TPanel_qkiblce4ytl', 'TPa6_1');
+								TPa6_2 = new TLabelControl('', '#runTime #TLabel_lj40kwjjtbl', 'TPa6_2', 'label');
+								TFl_7 = new TFlowLayoutControl('', '#runTime #TFlowLayout_0usu2mbw0s4', 'TFl_7');
+								TPa7_1 = new TPanelControl('', '#runTime #TPanel_wv5lgmwm0t', 'TPa7_1');
+								TPa7_2 = new TLabelControl('', '#runTime #TLabel_gv2hs43av2', 'TPa7_2', 'label');
+								ct_con = new TPanelControl('', '#runTime #TPanel_ifw4ww0hpdm', 'ct_con');
+								TForm_1 = new TFormControl('', '#runTime #TForm_h1978tlj35w', 'TForm_1');
+								TFlowLayout_15 = new TFlowLayoutControl('', '#runTime #TFlowLayout_ytskwbaje', 'TFlowLayout_15');
+								TLabel_16 = new TLabelControl('', '#runTime #TLabel_7b2ue5qy4oi', 'TLabel_16', 'label');
+								TLabel_17 = new TLabelControl('', '#runTime #TLabel_u527eivstpo', 'TLabel_17', 'label');
+								TLabel_18 = new TLabelControl('', '#runTime #TLabel_za2g24yw3y', 'TLabel_18', 'label');
+								TLabel_19 = new TLabelControl('', '#runTime #TLabel_oaw4yepipqm', 'TLabel_19', 'label');
+								TLabel_20 = new TLabelControl('', '#runTime #TLabel_5nrmfl1ebim', 'TLabel_20', 'label');
+								TLabel_21 = new TLabelControl('', '#runTime #TLabel_r7v5ao68uml', 'TLabel_21', 'label');
+								TLabel_22 = new TLabelControl('', '#runTime #TLabel_uxshg887ib', 'TLabel_22', 'label');
+								TLabel_23 = new TLabelControl('', '#runTime #TLabel_lvfb6svyysq', 'TLabel_23', 'label');
+								TFlowLayout_2 = new TFlowLayoutControl('', '#runTime #TFlowLayout_m4bxf391qv', 'TFlowLayout_2');
+								TPanel_3 = new TPanelControl('', '#runTime #TPanel_i5obmgkfk8s', 'TPanel_3');
+								TLabel_6 = new TLabelControl('', '#runTime #TLabel_gydr7la17h', 'TLabel_6', 'label');
+								TPanel_4 = new TPanelControl('', '#runTime #TPanel_sjvkkb9mege', 'TPanel_4');
+								TLabel_7 = new TLabelControl('', '#runTime #TLabel_dlzb2aeafiu', 'TLabel_7', 'label');
+								TPanel_5 = new TPanelControl('', '#runTime #TPanel_h8thl7fm2j6', 'TPanel_5');
+								TLabel_14 = new TLabelControl('', '#runTime #TLabel_zf6ygjncs1', 'TLabel_14', 'label');
+								TFlowLayout_25 = new TFlowLayoutControl('', '#runTime #TFlowLayout_wrjsjyxa08l', 'TFlowLayout_25');
+								TTa_26 = new TTableControl('', '#runTime #TTable_08ip71llkpfp', 'TTa_26');
+								TTa_28 = new TButtonControl('', '#runTime #TButton_qemogs58kl', 'TTa_28', 'button');
+								//待执行
+								
+								
+							})
+						</script>
+						<script>
+							$("#runTime #TTable_08ip71llkpfp tbody").on("click", "tr", function(e) {
+								rglo.trdom = $(this);
+								if(false) {
+									
+								}
+								e.stopPropagation();
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="flex flex-row wrap">
+			<div class="scan reference">
+				<div class="strainer">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<video class="capture" src=""></video>
+			</div>
+			<canvas id="canvas" width="200" height="150" style=""></canvas>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			$("#TFlowLayout_oq2ywcb3gie").click(function(){
+				window.open("two.html");
+			});
+							
+								
+			$("#TFlowLayout_1vd51kh2pb9").click(function(){
+				window.open("four.html");
+			});
+			$("#TFlowLayout_0usu2mbw0s4").click(function(){
+				window.open("five.html");
+			});
+			
+			
+			var offect;
+			$("#TPanel_rk617tlq56").click(function(){
+				$("#runTime").hide();
+				$(".wrap").show();
+//				$(".wrap").css("display","flex");
+				offect = $(".strainer").offset();
+//     			console.log(offect.left+","+offect.top);
+				
+				invokingCarera();
+			});
+			
+			
+			var buffer;
+			var c = 0;
+			var type = true;
+			var oCapture = document.querySelector(".capture");
+			var offect = $(".strainer").offset(); 
+			window.navigator.getUserMedia = navigator.getUserMedia || navigator.webKitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+			function invokingCarera() {
+				if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+					navigator.mediaDevices.getUserMedia({
+							'audio': false,
+//							'video': {
+//								'facingMode': "user"
+//							}
+							//调用前置摄像头，后置摄像头使用
+						 	 video: { facingMode: { exact: "environment" } }
+						})
+						.then(function(mediaStream) {
+
+							getVideoStream(mediaStream)
+						})
+						.catch(function(error) {
+
+							console.log(error)
+						})
+				} else if(navigator.getUserMedia) {
+					navigator.getUserMedia({
+						'video': true,
+						'audio': false
+					}, getVideoStream, getFail)
+				} else {
+					alert('不支持摄像头调用！')
+				}
+			}
+			//调用成功
+			function getVideoStream(stream) {
+				type = false;
+				buffer = stream;
+				if(oCapture.mozSrcObject !== undefined) {
+					oCapture.mozSrcObject = buffer;
+				} else {
+					oCapture.src = window.URL && window.URL.createObjectURL(buffer);
+					console.log("aa"+oCapture.src);
+				}
+				oCapture.play();
+				myscreenShot();
+			}
+
+			function closeCamera() {
+				buffer && buffer.getTracks()[0].stop(); //关闭摄像头
+				$("#runTime").show();
+				$(".wrap").hide();
+			}
+			window.requestAnimFrame = (function() {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					function(callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+
+			//解析二维码
+			function load(name) {
+				
+				//识别二维码并回调方法
+				qrcode.decode(name);
+				qrcode.callback = function(imgMsg) {
+					console.log("已进入解析")
+					if(imgMsg != null & imgMsg != "error decoding QR Code") {
+//						console.log(imgMsg);
+						alert(imgMsg);
+						closeCamera();
+					} else {
+						setTimeout("myscreenShot()", "500");
+					}
+
+				}
+
+			}
+
+			function myscreenShot() {
+				if(!type) {
+					var canvas = document.getElementById('canvas')
+//					canvas.getContext('2d').drawImage(oCapture,260, 190, 150,150,0,0,150,150);
+					canvas.getContext('2d').drawImage(oCapture,parseInt(offset.left)-100, parseInt(offset.top), 200,200,0,0,200,200);
+					var imgData = canvas.toDataURL("image/png");
+//					console.log(imgData);
+					load(imgData);
+				}
+
+			}
+		</script>
+	</body>
+	
+	
+	
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/factoryjs/bean.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/factoryjs/service.js"></script>
+	<script type="text/javascript" src="bootstrap3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/my-js/index.js"></script>
+	<script type="text/javascript" src="js/my-js/mode.js"></script>
+	<script type="text/javascript" src="js/my-js/run.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/rightHtml.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/control.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/layout.js" ></script>-->
+	<!--<script type="text/javascript" src="js/my-js/TFlowLayouttest.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TGridLayout.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/TTableLayouttest.js" ></script>-->
+
+	<!--<script type="text/javascript" src="js/my-js/labeltest.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TPanel.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/buttontest.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TTextField.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/checkBoxtest.js" ></script>-->
+	<!--<script type="text/javascript" src="js/my-js/radioButtontest.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TTextArea.js"></script>
+	<script type="text/javascript" src="js/my-js/TSelect.js"></script>
+	<script type="text/javascript" src="js/my-js/TZtree.js"></script>
+	<script type="text/javascript" src="js/my-js/TFlowLayout.js"></script>
+	<script type="text/javascript" src="js/my-js/TTable.js"></script>
+	<script type="text/javascript" src="js/my-js/TTabbedPane.js"></script>
+
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TRadioButton.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TPassWordField.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TDateField.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TButton.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TFile.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TTableLayout.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TMenuTree.js"></script>
+	<script type="text/javascript" src="http://192.168.123.51:8060/hp/outside/TCheckBox.js"></script>
+
+	<!--<script type="text/javascript" src="js/my-js/tabbedPane.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TSelectTable.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/baseForm.js" ></script>-->
+	<!--<script type="text/javascript" src="js/my-js/treetest.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TForm1.js"></script>
+	<script type="text/javascript" src="js/my-js/TPopover.js"></script>
+	<script type="text/javascript" src="js/my-js/TLabel.js"></script>
+	<!--<script type="text/javascript" src="js/my-js/collapse.js" ></script>-->
+	<!--<script type="text/javascript" src="js/my-js/mt.js" ></script>-->
+	<script type="text/javascript" src="js/my-js/TDropdown.js"></script>
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-treeview.js"></script>
+
+	<script type="text/javascript" src="js/jq-plugIn/jquery.json-viewer.js"></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.core.min.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/page.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/jquery.htmlClean.js"></script>
+	<script type="text/javascript" src="colorpick/js/colpick.js"></script>
+	<script type="text/javascript" src="datetimepicker/jquery.datetimepicker.full.min.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/quickQuery-packer.js"></script>
+	<!--2018.8.7新增table-tree-view-->
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="bootstrap-table/js/bootstrap-table-zh-CN.js"></script>
+	<script type="text/javascript" src="bootstrap-table/js/table-tree-view.js"></script>
+	<script type="text/javascript" src="js/jq-plugIn/qrcode.lib.min.js" ></script>
+	<script type="text/javascript" src="js/jq-plugIn/quagga.min.js" ></script>
+</html>

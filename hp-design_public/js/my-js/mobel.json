@@ -1,0 +1,245 @@
+{"language":[
+    {
+	
+      "code": "i18n-file",
+      "display": "cn",
+      "property":[
+		{
+			"code":"Chinese",
+			"valueString":"文件"
+		},{
+			"code":"English",
+			"valueString":"file"
+		}
+      ]
+    },
+	{
+      "code": "i18n-delete",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"删除"
+		},{
+			"code":"English",
+			"valueString":"delete"
+		}
+      ]
+    },
+    {
+      "code": "i18n-save",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"保存"
+		},{
+			"code":"English",
+			"valueString":"save"
+		}
+      ]
+    },
+    {
+      "code": "i18n-sourceCode",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"源码"
+		},{
+			"code":"English",
+			"valueString":"sourceCode"
+		}
+      ]
+    },
+    {
+      "code": "i18n-run",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"执行"
+		},{
+			"code":"English",
+			"valueString":"run"
+		}
+      ]
+    },
+    {
+      "code": "i18n-landscape",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"横屏"
+		},{
+			"code":"English",
+			"valueString":"landscape"
+		}
+      ]
+    },
+    {
+      "code": "i18n-sameWidth",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"同宽"
+		},{
+			"code":"English",
+			"valueString":"sameWidth"
+		}
+      ]
+    },
+    {
+      "code": "i18n-sameHeight",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"同高"
+		},{
+			"code":"English",
+			"valueString":"sameHeight"
+		}
+      ]
+    },
+    {
+      "code": "i18n-sameTop",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"顶部对齐"
+		},{
+			"code":"English",
+			"valueString":"topAlignment"
+		}
+      ]
+    },
+    {
+      "code": "i18n-bottomAlignment",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"底部对齐"
+		},{
+			"code":"English",
+			"valueString":"bottomAlignment"
+		}
+      ]
+    },
+    {
+      "code": "i18n-middleAlignment",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"中间对齐"
+		},{
+			"code":"English",
+			"valueString":"middleAlignment"
+		}
+      ]
+    },
+    {
+      "code": "i18n-leftAlignment",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"左对齐"
+		},{
+			"code":"English",
+			"valueString":"leftAlignment"
+		}
+      ]
+    },
+    {
+      "code": "i18n-rightAlignment",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"右对齐"
+		},{
+			"code":"English",
+			"valueString":"rightAlignment"
+		}
+      ]
+    },
+    {
+      "code": "i18n-center",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"居中"
+		},{
+			"code":"English",
+			"valueString":"center"
+		}
+      ]
+    },
+    {
+      "code": "i18n-copy",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"复制"
+		},{
+			"code":"English",
+			"valueString":"copy"
+		}
+      ]
+    },
+    {
+      "code": "i18n-cut",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"剪切"
+		},{
+			"code":"English",
+			"valueString":"cut"
+		}
+      ]
+    },
+    {
+      "code": "i18n-paste",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"粘贴"
+		},{
+			"code":"English",
+			"valueString":"paste"
+		}
+      ]
+    },
+    {
+      "code": "i18n-drawingBoard",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"绘图板"
+		},{
+			"code":"English",
+			"valueString":"drawingBoard"
+		}
+      ]
+    },
+    {
+      "code": "i18n-changeTheme",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"切换主题"
+		},{
+			"code":"English",
+			"valueString":"changeTheme"
+		}
+      ]
+    },
+    {
+      "code": "i18n-changeLanguage",
+      "display": "中文",
+      "property":[{
+			"code":"Chinese",
+			"valueString":"切换语言"
+		},{
+			"code":"English",
+			"valueString":"changeLanguage"
+		}
+      ]
+    }
+]
+}

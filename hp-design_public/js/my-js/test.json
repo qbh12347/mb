@@ -1,0 +1,113 @@
+{
+"aa":"aa"
+}
+
+//[["",""],["001","13诊室"],["03","03诊室"],["04","04诊室"],["05","05诊室"],["06","06诊室"],["07","07诊室"],["08","08诊室"],["09","09诊室"],["10","10诊室"],["11","11诊室"],["12","12诊室"],["13","13诊室"]]
+//[["",""],["020102","内科"],["020103","外科"],["020107","眼科"],["020108","口腔科"],["020109","耳鼻喉科"],["020110","妇产科"],["020111","感染科"],["020112","整形科"],["020113","心内科"]]
+//[["",""],["c3","陈医"],["D001","刘东洋"],["D0010","宋希尧"],["D0011","关晓彤"],["D0012","王鑫"],["D0013","童瑶"],["D0014","吴龙超"],["D0015","潘玲玲"],["D0016","季林丽"]]
+//[["",""],["01","主任医师"],["02","副主任医师"],["03","普通门诊"],["04","急诊"],["05","特需专家门诊"],["06","主治医师"],["07","副主任医师"]]
+//[["",""],["01","门诊副主任"],["02","全天门诊副主任100"],["03","全天门诊普通150"],["04","全天急诊主任100"],["14","下午门诊副主任15"],["15","下午门诊普通"]]
+//TSelect_28 //区域
+//TSelect_31 //门诊级别
+//TDateField_34 //看诊日期
+//TSelect_37 //时段
+//TSelectTable_42 // 诊间
+//TSelect_45 // 中西医标志
+//TSelectTable_47 //科别
+//TSelectTable_49//看诊医师
+//TSelectTable_52//实看科别
+//TSelectTable_54//是看医生
+//TSelectTable_56//号别
+//TSelectTable_58//给号组别
+
+//TTextField_61  //就诊序号
+//TTextField_63 最大诊号
+//TCheckBox_64 vip
+//TCheckBox_65 临
+//TCheckBox_66 停
+//TSelectTable_68 停诊原因
+
+//TDateField_71 批量停号
+//TDateField_73
+//TDateField_78 开始日期
+//TDateField_80
+
+//[{name: "Parent 1",nodes: [{name: "Child 1",nodes: [{name: "Grandchild 1"}, {name: "Grandchild 2"}]}, {name: "Child 2"}]}, {name: "Parent 2"}]
+
+
+
+
+
+
+//
+//let quyu = TSelect_28.getText();
+//let mzjb = TSelect_31.getText();
+//let kzrq = TDateField_34.getText();
+//let sd = TSelect_37.getText();
+//let zj =TSelectTable_42.getText();
+//let zxybz = TSelect_45.getText();
+//let kb = TSelectTable_47.getText();
+//let kzys = TSelectTable_49.getText();
+//let skkb = TSelectTable_52.getText();
+//let skys = TSelectTable_54.getText();
+//let hb = TSelectTable_56.getText();
+//let ghzb = TSelectTable_58.getText();
+
+//区域,,,regionCode;门级别,,,admType;看诊日期,,,admDate;时段,,,sessionCode;诊间,,,clinicRoomNo;中/西,,,westMediFlg;科别,,,drCode;看诊医师,,,realDeptCode;实看科别,,,realDrCode;实看医师,,,clinicTmpFlg;号别,,,clinicTypeCode;给号组别,,,queGroupCode;就诊号,,,queNo;最大号,,,maxQue;VIP,,checkbox,vipFlg;临,,checkbox,refrsnCode;停,,checkbox,stopSession;停诊原因,,,stopSession;操作人员,,,optUser;操作日期,,,optDate;操作终端,,,optTerm;操作,,button,["增加","编辑","修改"]
+
+
+
+
+
+
+
+
+
+
+
+//,50px,checkbox,;主键,,boolean,id;名称,,button,["新增","编辑","删除"];版本,,,修改;状态,,,
+//体检日期,20%,,date;体检套餐,20%,,jzks;总检结论,40%,,jzys;操作,20%,,
+//疾病名称,40%,,date;就诊类型,20%,,jzks;就诊/入院日期,20%,,jzys;出院日期,10%,,;操作,10%,,
+//手术名称,40%,,date;手术类型,20%,,jzks;手术/入院日期,20%,,jzys;出院日期,10%,,;操作,10%,,
+//过敏物名称,40%,,date;过敏类型,20%,,jzks;检查日期,20%,,jzys;检查方式,10%,,;操作,10%,,
+//呼吸,,,date;体温,,,jzks;脉搏,,,jzys
+//新增专案,打开,保存,另存为,导入,导出
+
+//药品名称,,,;组合名称,,,;项目名称,,,;参数,,,;结果,,,;血压（参数）,,,;脉搏（参数）,,,;
+
+
+
+
+//科室病人,备忘汇总,手术排台,消息提醒
+//[["序号","代码","名称"],["2","002","北京"],["3","003","北京"],["4","004","北京"]]
+//,glyphicon glyphicon-folder-open;,glyphicon glyphicon-floppy-disk;,glyphicon glyphicon-file;,glyphicon glyphicon-list-alt;,glyphicon glyphicon-arrow-left;,glyphicon glyphicon-arrow-right;,glyphicon glyphicon-align-left;,glyphicon glyphicon-align-center;,glyphicon glyphicon-align-right;,glyphicon glyphicon-align-justify;,glyphicon glyphicon-object-align-top;,glyphicon glyphicon-object-align-bottom                            
+
+//文件：glyphicon glyphicon-folder-open 保存：glyphicon glyphicon-floppy-disk 复制：glyphicon glyphicon-file
+//粘贴：glyphicon glyphicon-list-alt 上一步：glyphicon glyphicon-arrow-left 下一步：glyphicon glyphicon-arrow-right
+//左对齐：glyphicon glyphicon-align-left 居中：glyphicon glyphicon-align-center 右对齐：glyphicon glyphicon-align-right
+//两端对齐：glyphicon glyphicon-align-justify 定不对齐：glyphicon glyphicon-object-align-top 底部对齐：glyphicon glyphicon-object-align-bottom
+//[{'text': 'Parent 1','nodes': [{'text': 'Child 1','nodes': [{'text': 'Grandchild 1'},{'text': 'Grandchild 2'}]},{'text': 'Child 2'}]},{'text': 'Parent 2'},{'text': 'Parent 3'}]
+//{
+//"data":[{'text': 'Parent 1','nodes': [{'text': 'Child 1','nodes': [{'text': 'Grandchild 1'},{'text': 'Grandchild 2'}]},{'text': 'Child 2'}]},{'text': 'Parent 2'},{'text': 'Parent 3'}]
+//
+//}
+//
+//{
+//"data":[
+//	{
+//		"text":"Parent 1",
+//		"nodes":[{"text":"Child 1"}]
+//	},{
+//		"text":"Parent 2"
+//	}
+//
+//]
+//
+//}
+/**
+
+    
+*/
+
+//[[1,2],[3,4],[5,6],[7,8],[9,0]]
+	

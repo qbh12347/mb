@@ -1,0 +1,874 @@
+ {
+ "version":"",
+ "project":"webComponent",
+ "componentList":{
+ 	"TLabel":{
+ 		"parentComponent":"",  //父级组建，主要用于数据上的父子关系。
+ 		"parentId":"",         //父组件id,主要用于html结构上的嵌套关系。(最主要用在tabbedPane组建中)
+ 		"children":"",         //子组件
+ 		"css":"{}",
+ 		"properties":{
+ 			"type":"label",    //类型，根据不同 类型生成不同的html 
+		 	"id":"",           //唯一标识符		 	
+		 	"top":"",          //控件position距离顶部相对距离
+		 	"left":"",         //控件position距离左侧相对距离
+		 	"width":"",        //控件宽度
+		 	"height":"",       //控件高度 
+		 	"color":"",        //控件内部字体颜色
+		 	"font-size":"",    //控件内部字体大小
+		 	"fontFamily":"",   //控件内部字体
+		 	"fontStyle":"",	   //控件内部字体类型	
+		 	"text":"",         //控件内部文本
+		 	"name":"",         //控件标签name
+		 	"className":"",    //控件类名
+		 	"visible":"",      //控件可见性
+		 	"border":"",        //控件边框
+		 	"leftBorder":"",   //控件距离左侧与宽度之和，用于子组件判断是否属于其中
+		 	"topBorder":"",     //控件距离顶部与高度之和，用于子组件判断是否属于其中
+		 	"addField":"" ,      //新增一个字段
+		 	"spacing":"",       //控件的margin-left边距		 	
+			"posType":"",       //控件定位方式 
+		 	"x":"",             //控件真实距离左侧距离，用于计算子父组件关系（比如父组件flowlayout，使用了flex属性，要想flex起作用就要子组件top：0，left：0，这样没法计算组件的父子关系，所以需要一个新的字段用于计算父子关系）
+		 	"y":""	,			//控件真实距离顶部距离，
+		 	"order":"",         //flex项目的排列顺序
+			"flex":"",          //flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto
+			"alignSelf":"",     //flex允许单个项目有与其他项目不一样的对齐方式	
+			"viewHtml":""      //html代码
+//			"val":""           //val值，主要用于区分text和input
+//			"childrenLeval":""  //val作用子元素的层级，主要用于runtime
+			
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+ 				"keydown":"",  //键盘按下
+ 				"keypress":"", //键盘按下
+ 				"keyup":""     //键盘松开 				
+ 			},
+ 			"mouseEvent":{
+ 				"click":"",    //点击事件
+		 		"dblclick":"", //双击事件
+		 		"rightClick":"",//右击事件
+		 		"mousedown":"",//鼠标按下
+		 		"mouseup":"",  //鼠标松开
+		 		"mouseover":"",//鼠标从一个元素移入另一个元素时触发 
+		 		"mouseout":"", //鼠标移出元素时触发
+		 		"mouseenter":"",//鼠标移入元素时触发
+		 		"mouseleave":"" //鼠标移出元素时触发
+ 			}
+ 		}
+ 	},
+ 	"TFlowLayout":{
+ 	 	"parentComponent":"",
+ 	 	"parentId":"",
+ 	 	"children":"" ,          //他的子组件将会写在里面
+ 		"properties":{
+ 			"type":"flewLayout",   
+		 	"id":"",
+		 	"top":"",
+		 	"left":"",
+		 	"width":"",
+		 	"height":"",
+		 	"color":"",
+		 	"font-size":"",
+		 	"fontFamily":"",
+		 	"fontStyle":"",
+		 	"text":"",
+		 	"name":"",
+		 	"className":"",
+		 	"leftBorder":"", 
+		 	"topBorder":"", 
+		 	"visible":"",
+		 	"border":"",
+		 	"spacing":"",
+		 	"posType":"",
+		 	"flexDirection":"",       //主轴的方向
+		 	"flexWrap":"",            //排列方式
+		 	"justifyContent":"",      //主轴上的对齐方式
+		 	"alignItems":"",          //交叉轴上如何对齐
+		 	"alignContent":"" ,        //多根轴线的对齐方式
+		 	"x":"",             
+		 	"y":""	
+
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+ 				"keydown":"",
+ 				"keypress":""
+ 			},
+ 			"mouseEvent":{
+ 				"click":"",
+		 		"dblclick":"",
+		 		"rightClick":"",
+		 		"mousedown":"",
+		 		"mouseup":"",
+		 		"mouseover":"",
+		 		"mouseout":"",
+		 		"mouseenter":"",
+		 		"mouseleave":""
+ 			}
+ 		}
+ 	
+ 	
+ 	
+ 	},
+ 		"TGridLayout":{
+ 	 	"parentComponent":"",
+ 	 	"parentId":"",
+ 	 	"children":"" ,          
+ 		"properties":{
+ 			"type":"flewLayout",   
+		 	"id":"",
+		 	"top":"",
+		 	"left":"",
+		 	"width":"",
+		 	"height":"",
+		 	"color":"",
+		 	"font-size":"",
+		 	"fontFamily":"",
+		 	"fontStyle":"",
+		 	"text":"",
+		 	"name":"",
+		 	"className":"",
+		 	"leftBorder":"", 
+		 	"topBorder":"", 
+		 	"visible":"",
+		 	"border":"",
+		 	"spacing":"",
+		 	"posType":"",
+			"x":"",             
+		 	"y":"",	
+		    "sm":"",          //（≥768px）有几列
+		    "md":"",          //（≥992px）有几列
+		    "lg":""           //（≥1200px）有几列
+
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+ 				"keydown":"",
+ 				"keypress":""
+ 			},
+ 			"mouseEvent":{
+ 				"click":"",
+		 		"dblclick":"",
+		 		"rightClick":"",
+		 		"mousedown":"",
+		 		"mouseup":"",
+		 		"mouseover":"",
+		 		"mouseout":"",
+		 		"mouseenter":"",
+		 		"mouseleave":""
+ 			}
+ 		}
+ 	
+ 	
+ 	
+ 	},
+ 	
+ 	"TButton":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"button",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"leftBorder":"", 
+		"topBorder":"", 
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,    
+	 	"icon":{
+	 		"pressImgUrl":"",     //鼠标按下背景图片
+	 		"releaseImgUrl":""    //鼠标松开背景图片
+	 	},
+	 	"bgColor":"",             
+	 	"border":"",
+	 	"pressBgColor":"",        //鼠标按下背景颜色	 	
+	 	"releaseBgColor":""		  //鼠标松开背景颜色	
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+ 				"keydown":"",
+		 		"keypress":"",
+		 		"keyup":""	
+ 			},
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":"",
+	 		"rightClick":"",
+	 		"mousedown":"",
+	 		"mouseup":"",
+	 		"mouseover":"",
+	 		"mouseout":"",
+	 		"mouseenter":"",
+	 		"mouseleave":""
+ 		}
+ 		}
+ 	},
+	 "TTextfield":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"textfield",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"fontSize":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",  
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+	 	"format":""
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+		 		"focus":""	    //输入框获得焦点
+ 			},
+ 			"mouseEvent":{
+	 			"click":"",
+		 		"dblclick":"",
+		 		"mousedown":""
+ 		}
+ 		}
+ 	},
+ 	"TNumberTextfield":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"numberTextfield",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"", 
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,  
+	 	"format":""    //输入格式限制，可输入正则控制
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+ 				"keydown":"",
+		 		"keypress":"",
+		 		"keyup":"",
+		 		"focus":""
+ 			},
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":"",
+	 		"mousedown":"",
+	 		"mouseup":"",
+	 		"mouseover":"",
+	 		"mouseout":"",
+	 		"mouseenter":"",
+	 		"mouseleave":""
+ 		}
+ 		}
+ 	},
+ 	"TDateField":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"dateField",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"name":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,   
+	 	"format":""        //日期格式控制
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"focus":""
+ 		}
+ 		}
+ 	},
+ 	"TPasswordField":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"passwordField",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"name":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"", 
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,  
+	 	"format":""
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"focus":""
+ 		}
+ 		}
+ 	},
+ 	"TCheckBox":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"checkBox",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"name":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"visible":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,   
+	 	"selected":""    //是否被选中
+ 		}	
+ 	},
+ 	"TRadioButton":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"radioButton",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"name":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,   
+	 	"selected":""  //选中的项
+ 		}
+ 	},
+ 	"TPanel":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"panel",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",  
+		"spacing":"",
+		"posType":"",
+		"posType":"",                  //定位方式 
+	 	"backgroundImgUrl":"",         //背景图片
+	 	"background-size":"",          //背景图片大小
+	 	"backgroundPosition":"" ,       //背景图片位置
+	 	"X":"",
+	 	"Y":"",
+	 	"order":"",               //项目的排列顺序
+		"flex":"",                //flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto
+		"alignSelf":""            //允许单个项目有与其他项目不一样的对齐方式	
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":"",
+	 		"mousedown":"",
+	 		"mouseup":"",
+	 		"mouseover":"",
+	 		"mouseout":"",
+	 		"mouseenter":"",
+	 		"mouseleave":""
+ 			},
+ 			"keyEvent":{
+ 			"keydown":"",
+	 		"keypress":"",
+	 		"keyup":""
+ 			}
+ 		}
+ 	},
+ 	"TTable":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"children":"",
+ 		"properties":{
+	 	"type":"table",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"leftBorder":"",
+	 	"topBorder":"",
+	 	"visible":"",
+	 	"spacing":"",
+		"posType":"",
+		"statusData":"",                //存储增删改的数据
+		"dataType":"",              //table的数据类型，主要用于setdata,有json和二维数组之分。
+	 	"header":"",                //表格标题      
+	 	"headerBgColor":"",         //表格标题背景颜色
+	 	"headerColor":"",           //表格标题字体颜色
+	 	"bgColor":"",               //表格背景颜色
+	 	"border":"",
+	 	"colspan":"",               //表格列合并数
+	 	"rowspan":"",               //表格行合并数
+	 	"addRows":"",               //新增行数
+	 	"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+	 	"spacing":"",               //边距 
+	 	"rows":"",                  //行数
+	 	"cols":"",                  //列数
+	 	"setData":""               //设置数据
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":""
+ 			}
+ 		}
+ 	},
+ 	"TTree":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"tree",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"name":"",
+	 	"visible":"",
+	 	"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",   
+		"one":"",              //表示是否为第一个控件树（runtime使用）                 
+		"alignSelf":"" ,   
+	 	"setData":""  ,       //设置数据
+	 	"addParentNode":"",   //增加父节点
+	 	"addLeafNode":"",     //增加子节点
+	 	"delNode":""          //删除节点
+
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":""
+ 			}
+ 		}
+ 	},
+ 	"TTabbed":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"tabbed",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"text":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"listItem":"",     //切换的tab
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"leftBorder":"", 
+		"topBorder":"",  
+	 	"border":"",
+	 	"spacing":"",
+		"posType":"",
+	 	"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+	 	"activeColor":""
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"click":"",
+ 			"dblclick":""
+ 			}
+ 		}
+ 	},
+ 	"TLayoutAdapter":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"layoutAdapter",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"", 
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,  
+	 	"picture":""
+ 		}
+ 	},
+ 	"TMovePanel":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"movePanel",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"moveParent":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"moveType":"",
+	 	"style":"",
+	 	"cursor":"",
+	 	"leftBorder":"", 
+	 	"spacing":"",
+		"posType":"",
+	 	"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+		"topBorder":"",        //指针类型
+	 	"entityData":""   //实体数据
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{	
+	 		"click":"",
+	 		"dblclick":""
+ 			}
+ 		}
+ 	},
+ 	"TDataWindow":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"dataWindow",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"className":"",
+	 	"text":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+		"fileName":"",
+		"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" ,   
+		"preView":""
+ 		}
+ 	},
+ 	"TTextArea":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"textArea",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"className":"",
+	 	"text":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+		"font-size":"",
+	 	"fontFamily":"",
+	 	"leftBorder":"", 
+		"topBorder":"", 
+		"spacing":"",
+		"posType":"", 
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+	 	"fontStyle":""
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{	
+	 		"click":"",
+	 		"dblclick":""
+ 			}
+ 		}
+ 	},
+ 	"TWord":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"word",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"className":"",
+	 	"text":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",
+		"spacing":"",
+		"posType":"",  
+		"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+		"cursor":""
+ 		}
+ 	},
+ 		"TSelectTable":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"properties":{
+	 	"type":"textfield",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"fontSize":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",  
+	 	"format":"",
+	 	"spacing":"",
+		"posType":"",
+	 	"x":"",             
+	 	"y":"",			
+	 	"order":"",               
+		"flex":"",               
+		"alignSelf":"" , 
+	 	"setData":""
+ 		},
+ 		"eventList":{
+ 			"keyEvent":{
+		 		"focus":""	    //输入框获得焦点
+ 			},
+ 			"mouseEvent":{
+	 			"click":"",
+		 		"dblclick":"",
+		 		"mousedown":""
+ 		}
+ 		}
+ 	},
+ 	"TForm":{
+ 		"parentComponent":"",
+ 		"parentId":"",
+ 		"children":[],
+ 		"properties":{
+	 	"type":"panel",   
+	 	"id":"",
+	 	"top":"",
+	 	"left":"",
+	 	"width":"",
+	 	"height":"",
+	 	"color":"",
+	 	"font-size":"",
+	 	"fontFamily":"",
+	 	"fontStyle":"",
+	 	"text":"",
+	 	"name":"",
+	 	"className":"",
+	 	"visible":"",
+	 	"bgColor":"",
+	 	"border":"",
+	 	"leftBorder":"", 
+		"topBorder":"",  
+		"spacing":"",
+		"posType":"",
+		"posType":"",                  //定位方式 
+	 	"backgroundImgUrl":"",         //背景图片
+	 	"background-size":"",          //背景图片大小
+	 	"backgroundPosition":"" ,       //背景图片位置
+	 	"X":"",
+	 	"Y":""
+ 		},
+ 		"eventList":{ 			
+ 			"mouseEvent":{
+ 			"click":"",
+	 		"dblclick":"",
+	 		"mousedown":"",
+	 		"mouseup":"",
+	 		"mouseover":"",
+	 		"mouseout":"",
+	 		"mouseenter":"",
+	 		"mouseleave":""
+ 			},
+ 			"keyEvent":{
+ 			"keydown":"",
+	 		"keypress":"",
+	 		"keyup":""
+ 			}
+ 		}
+ 	}
+ 
+ 
+ }
+}

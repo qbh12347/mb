@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jq-plugIn/echarts.common.min.js"></script>
+		<title></title>
+		<style>
+			 /*.line i{display: inline-block;width: 8px;height: 8px;background: palevioletred ;border-radius: 50%;border: 1px solid palevioletred;float: left;}
+			 .line em{display: inline-block;width: 8px;height: 8px;background: palevioletred ;border-radius: 50%;border: 1px solid palevioletred;float: right;}
+			 .line:before {content: "";width: 100%;height: 1px; background: palevioletred;top: 4px;position: absolute;}
+			 .line{height: 30px;}*/
+			html,body{width: 100%;height: 100%;}
+			.flex {
+				display: flex;
+			}
+			
+			.flex-row {
+				/*flex-direction: column;*/
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			.flex-column {
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			
+			/*body {
+				overflow: auto;
+				background: #fff;
+			}*/
+			
+			/*.title {
+				width: 920px;
+				padding: 30px;
+				align-items: flex-end;
+			}
+			
+			.title h1 {
+				padding-bottom: 20px;
+				font-size: 38px;
+				color: #ffffff;
+				text-shadow: 0 1px 3px #222222;
+			}
+			
+			.title p {
+				font-size: 18px;
+				color: #f5f5f5;
+				text-shadow: 0 1px 3px #565656;
+			}*/
+			
+			.wrap {
+				width: 100%;
+				height: 100%;
+				/*display: none;*/
+			}
+			
+			.wrap .reference {
+				position: relative;
+				/*padding: 10px;*/
+				background-color: rgba(255, 255, 255, 0);
+				/* border-radius: 10px; */
+				box-shadow: 0 0 20px #a1a19f;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.wrap .reference img.face {
+				display: block;
+				width: 320px;
+				height: auto;
+				border-radius: 10px;
+			}
+			
+			.wrap .reference img.toggle {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				width: 50px;
+				height: 50px;
+			}
+			
+			.wrap .scan video {
+				background-color: rgba(0, 0, 0, .8);
+				/* border-radius: 10px; */
+				width: 100%;
+				height: 100%;
+			}
+			
+			.wrap .control {
+				justify-content: space-around;
+				height: 456px;
+				padding: 0 20px;
+			}
+			
+			.wrap .control p {
+				width: 160px;
+				height: 60px;
+				background-color: #f9f9f9;
+				text-align: center;
+				line-height: 60px;
+				color: #ffffff;
+				font-size: 24px;
+				border-radius: 8px;
+				cursor: pointer;
+				box-shadow: -8px -8px 150px -8px #b2b3b5 inset, 0 0 5px #222222;
+				text-shadow: 0 0 1px #222222;
+				transition: .5s;
+			}
+			
+			.wrap .control p:hover {
+				box-shadow: -8px -8px 150px -8px #50c4f1 inset, 0 0 5px #ffffff;
+			}
+			
+			.wrap .scan {
+				position: relative;
+				overflow: hidden;
+			}
+			.strainer span {
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				border: 2px solid #1fa2ff;
+			}
+			
+			.strainer span:nth-child( 1) {
+				left: 0;
+				top: 0;
+				border-width: 2px 0 0 2px;
+			}
+			
+			.strainer span:nth-child( 2) {
+				right: 0;
+				top: 0;
+				border-width: 2px 2px 0 0;
+			}
+			
+			.strainer span:nth-child( 3) {
+				right: 0;
+				bottom: 0;
+				border-width: 0 2px 2px 0;
+			}
+			
+			.strainer span:nth-child( 4) {
+				left: 0;
+				bottom: 0;
+				border-width: 0 0 2px 2px;
+			} 
+
+			
+			.wrap .scan .strainer {
+				position: absolute;
+				top: 0;
+				width: 200px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				z-index: 999;
+				height: 200px;
+			}
+
+			.scan {
+				position: absolute;
+			}
+			
+			.strainer:after {
+				-webkit-animation: rotateAnim linear 3.68s infinite;
+				animation: rotateAnim linear 3.68s infinite;
+				content: '';
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 2px;
+				background-color: #d8be26;
+			}
+			
+			@keyframes rotateAnim {
+				from {
+					top: 0;
+				}
+				to {
+					top: 100%;
+				}
+			}
+			
+			@-webkit-keyframes rotateAnim {
+				from {
+					top: 0;
+				}
+				to {
+					top: 100%;
+				}
+			}
+
+			
+		</style>
+
+	</head>
+		<div class="flex flex-row wrap">
+			<div class="scan reference" style="text-align: center;">
+				<div class="strainer">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<img id="tulip" src="img/rxtest.jpg" alt="The Tulip" />
+			</div>
+			<!--<canvas id="canvas" width="200" height="150" style=""></canvas>-->
+		</div>
+
+<canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;background:#ffffff;"></canvas>
+
+<script>
+var left = $(".strainer").offset().left-100;
+var topa = $(".strainer").offset().top;
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var img=document.getElementById("tulip");
+ctx.drawImage(img,left,topa,200,200,0,0,200,200);
+
+</script>
+
+
+</html>

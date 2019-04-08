@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="codemirror/lib/codemirror.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/theme/monokai.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/display/fullscreen.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/hint/show-hint.css" rel="stylesheet" type="text/css">
+		<link href="codemirror/addon/dialog/dialog.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="bootstrap3.0/js/jquery-3.3.1.min.js"></script>
+		
+		<!-- 引入CodeMirror核心文件 -->
+		<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+		<!--<script type="text/javascript" src="codemirror/src/edit/CodeMirror.js"></script>-->
+		
+		<!-- CodeMirror支持不同语言，根据需要引入JS文件 -->
+		<!-- 因为HTML混合语言依赖Javascript、XML、CSS语言支持，所以都要引入 -->
+		<script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>
+		<script type="text/javascript" src="codemirror/mode/xml/xml.js"></script>
+		<script type="text/javascript" src="codemirror/mode/css/css.js"></script>
+		<script type="text/javascript" src="codemirror/mode/sql/sql.js"></script>
+		<!--<script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>-->
+		<!--<script type="text/javascript" src="codemirror/mode/htmlmixed/htmlmixed.js"></script>-->
+		
+		
+		<!-- 下面分别为显示行数、括号匹配和全屏插件 -->
+		<script type="text/javascript" src="codemirror/addon/selection/active-line.js"></script>
+		<script type="text/javascript" src="codemirror/addon/edit/matchbrackets.js"></script>
+		<script type="text/javascript" src="codemirror/addon/display/fullscreen.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/show-hint.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/anyword-hint.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/html-hint.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/javascript-hint.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/sql-hint.js"></script>
+		<script type="text/javascript" src="codemirror/addon/hint/xml-hint.js"></script>
+		<!--<script type="text/javascript" src="codemirror/mode/sql/sql.js"></script>-->
+		
+		<script type="text/javascript" src="codemirror/keymap/vim.js"></script>
+		<script type="text/javascript" src="codemirror/addon/search/searchcursor.js"></script>
+		<script type="text/javascript" src="codemirror/addon/dialog/dialog.js"></script>
+		<title></title>
+		<style>
+		.CodeMirror{width: 100%;height: 100%;font-size: 14px;}
+		</style>
+	</head>
+
+	<body>
+		<!--<form >-->
+		    <textarea id="code" ></textarea>
+		    <button type="button" onclick="aa()">click</button>
+		<!--</form>-->
+
+	</body>
+		<script>
+			var shortURL=top.location.href.substring(0,top.location.href.indexOf('?')); 
+			history.replaceState(null,null,shortURL)
+			
+			
+			
+			
+			
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,     // 显示行数
+        indentUnit: 4,         // 缩进单位为4
+        styleActiveLine: true, // 当前行背景高亮
+        matchBrackets: true,   // 括号匹配
+//      mode: 'htmlmixed',     // HMTL混合模式
+        lineWrapping: true,    // 自动换行
+        theme: 'monokai',      // 使用monokai模版
+//      mode:"text/x-java",
+//      keyMap:"vim",
+//      extraKeys: {"Ctrl": "autocomplete"},
+//		extraKeys:{"Ctrl":"autocomplete"}//ctrl-space唤起智能提示
+    });
+    editor.setOption("extraKeys", {
+        // Tab键换成4个空格
+        Tab: function(cm) {
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection(spaces);
+        },
+        // F11键切换全屏
+        "F11": function(cm) {
+            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        // Esc键退出全屏
+        "Esc": function(cm) {
+            if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+    });
+    editor.on("cursorActivity", function () {
+            //调用显示提示
+            editor.showHint();
+	});
+    function aa(){
+//  	$("#code").toggle();
+    	console.log(editor.getValue())
+    	
+    }
+	</script>
+
+</html>
